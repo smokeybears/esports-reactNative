@@ -1,6 +1,6 @@
 import React from 'react';
 import { StyleSheet, Text, View } from 'react-native';
-import { createBottomTabNavigator, createStackNavigator } from 'react-navigation';
+import { createAppContainer, createStackNavigator,createBottomTabNavigator } from 'react-navigation';
 
 import StreamScreen from './Screens/StreamScreen';
 import ScoreScreen from './Screens/ScoreScreen';
@@ -9,40 +9,33 @@ import DiscussionScreen from './Screens/DiscussionScreen';
 
 
 export default class App extends React.Component {
-  render() {
-    const MainNavigator = createBottomTabNavigator({
-
-      main: {
-        screen: createBottomTabNavigator({
-          stream: { screen: StreamScreen },
-          score: { screen: ScoreScreen },
-          profile: { screen: ProfileScreen },
-          discussion: { screen: DiscussionScreen }
-        }, {
-          tabBarPosition: 'bottom',
-          tabBarOptions: {
-            labelStyle: { fontSize: 12 },
-         },
-        }),
-      }
-    }, {
-      navigationOptions: {
-        tabBarVisible: false,
-      },
-      lazy: true,
-    });
   
-    return (
-        <MainNavigator />
+  render() {
+    const Home = createStackNavigator(
+      {
+        Stream: StreamScreen,
+        Score: ScoreScreen,
+      },
+      {
+        defaultNavigationOptions: {
+          headerTintColor: '#fff',
+          headerStyle: {
+            backgroundColor: '#000',
+          },
+        },
+        navigationOptions: {
+          tabBarLabel: 'Home!',
+        },
+      }
     );
+    const Tabs = createBottomTabNavigator({ Home });
+    
+    return(
+      <Tabs />
+    )
   }
 }
 
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
+
+
+
