@@ -13,17 +13,7 @@ const HomeStack = createStackNavigator({
 });
 
 HomeStack.navigationOptions = {
-  tabBarLabel: 'Stream',
-  tabBarIcon: ({ focused }) => (
-    <TabBarIcon
-      focused={focused}
-      name={
-        Platform.OS === 'ios'
-          ? `ios-cart${focused ? '' : '-outline'}`
-          : 'md-cart'
-      }
-    />
-  ),
+  tabBarLabel: 'Stream'
 };
 
 const LinksStack = createStackNavigator({
@@ -31,13 +21,7 @@ const LinksStack = createStackNavigator({
 });
 
 LinksStack.navigationOptions = {
-  tabBarLabel: 'Discussion',
-  tabBarIcon: ({ focused }) => (
-    <TabBarIcon
-      focused={focused}
-      name={Platform.OS === 'ios' ? `ios-card${focused ? '' : '-outline'}` : 'md-card'}
-    />
-  ),
+  tabBarLabel: 'Discussion'
 };
 
 const SettingsStack = createStackNavigator({
@@ -45,13 +29,7 @@ const SettingsStack = createStackNavigator({
 });
 
 SettingsStack.navigationOptions = {
-  tabBarLabel: 'Profile',
-  tabBarIcon: ({ focused }) => (
-    <TabBarIcon
-      focused={focused}
-      name={Platform.OS === 'ios' ? `ios-options${focused ? '' : '-outline'}` : 'md-options'}
-    />
-  ),
+  tabBarLabel: 'Profile'
 };
 
 const AuthStack = createStackNavigator({
@@ -59,13 +37,7 @@ const AuthStack = createStackNavigator({
 });
 
 AuthStack.navigationOptions = {
-  tabBarLabel: 'Score',
-  tabBarIcon: ({ focused }) => (
-    <TabBarIcon
-      focused={focused}
-      name={'logo-facebook'}
-    />
-  ),
+  tabBarLabel: 'Score'
 };
 
 export default createBottomTabNavigator({
