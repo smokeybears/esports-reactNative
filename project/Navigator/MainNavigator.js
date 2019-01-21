@@ -4,16 +4,37 @@ import { createStackNavigator, createBottomTabNavigator } from 'react-navigation
 
 import TabBarIcon from '../components/TabBarIcon';
 import StreamScreen from '../Screens/StreamScreen';
+import ScoreScreen from '../Screens/ScoreScreen';
 import DiscussionScreen from '../Screens/DiscussionScreen';
 import ProfileScreen from '../Screens/ProfileScreen';
-import ScoreScreen from '../Screens/ScoreScreen';
 
 const HomeStack = createStackNavigator({
   Home: StreamScreen,
 });
 
 HomeStack.navigationOptions = {
-  tabBarLabel: 'Stream'
+  tabBarLabel: 'Stream',
+  tabBarIcon: ({ focused }) => (
+    <TabBarIcon
+      focused={focused}
+      name={Platform.OS === 'ios' ? `ios-phone-landscape` : 'md-phone-landscape'}
+    />
+  ),
+};
+
+
+const AuthStack = createStackNavigator({
+  Auth: ScoreScreen,
+});
+
+AuthStack.navigationOptions = {
+  tabBarLabel: 'Score',
+  tabBarIcon: ({ focused }) => (
+    <TabBarIcon
+      focused={focused}
+      name={Platform.OS === 'ios' ? `ios-apps` : 'ios-apps'}
+    />
+  ),
 };
 
 const LinksStack = createStackNavigator({
@@ -21,7 +42,13 @@ const LinksStack = createStackNavigator({
 });
 
 LinksStack.navigationOptions = {
-  tabBarLabel: 'Discussion'
+  tabBarLabel: 'Discussion',
+  tabBarIcon: ({ focused }) => (
+    <TabBarIcon
+      focused={focused}
+      name={Platform.OS === 'ios' ? `ios-chatbubbles` : 'md-chatbubbles'}
+    />
+  ),
 };
 
 const SettingsStack = createStackNavigator({
@@ -29,20 +56,18 @@ const SettingsStack = createStackNavigator({
 });
 
 SettingsStack.navigationOptions = {
-  tabBarLabel: 'Profile'
-};
-
-const AuthStack = createStackNavigator({
-  Auth: ScoreScreen,
-});
-
-AuthStack.navigationOptions = {
-  tabBarLabel: 'Score'
+  tabBarLabel: 'Profile',
+  tabBarIcon: ({ focused }) => (
+    <TabBarIcon
+      focused={focused}
+      name={Platform.OS === 'ios' ? `ios-contact` : 'md-contact'}
+    />
+  ),
 };
 
 export default createBottomTabNavigator({
   HomeStack,
+  AuthStack,
   LinksStack,
   SettingsStack,
-  AuthStack,
 });
