@@ -68,8 +68,7 @@ SettingsStack.navigationOptions = {
 };
 
 export default createBottomTabNavigator({
- 
-  HomeStack,
+  Home: {screen: StreamScreen},
   AuthStack,
   LinksStack,
   SettingsStack,

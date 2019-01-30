@@ -1,50 +1,84 @@
-import React , { Component }from 'react';
-import { Text } from "react-native";
+import React , { Component } from 'react';
+import { connect } from 'react-redux';
+import { Text, View } from "react-native";
 import { Button, Card, CardSection, Input, Spinner} from '../components/common';
-
+import { attemptLogin } from '../redux/actions'
 class SignInScreen extends Component {
   static navigationOptions = {
     title: 'SignIn',
   };
 
-  onButtonPress() {
-    this.props.navigation.navigate('HomeStack');
-        
-}
+  constructor(props){
+    super(props)
+    if (props.session){
+      this.props.navigation.navigate('Settings')
+    }
+    this.state = {
+      username: 'ayy',
+      password: '1234'
+    }
+  }
 
-  renderButton() {
-    return (
-        <Button onPress={this.onButtonPress.bind(this)}>
-            Log in
-        </Button>
-    );
-}
+  onButtonPress() {
+    // attemptLogin also loads profile, a bit misleading 
+    return this.props.dispatch(attemptLogin(
+      {
+        username: this.state.username, 
+        password:this.state.password
+      }))
+  }
 
   render() {
     return (
-       <Card>
-           <CardSection>
-               <Input
-                    placeholder="UserName"
-                    label="User Name"
-               />
-           </CardSection>
+     <View style={containerStyle}>
+         <Card>
+             <CardSection>
+                 <Input
+                      placeholder="UserName"
+                      label="User Name"
+                      value={this.state.username}
+                      // not sure why onChange isn't working
+                      // but better to user that
+                      onChangeText={e => this.setState({username: e})}
+                 />
+             </CardSection>
 
-           <CardSection>
-               <Input
-                secureTextEntry
-                placeholder="password"
-                label="Password"
-               />
-           </CardSection>
+             <CardSection>
+                 <Input
+                  secureTextEntry
+                  placeholder="password"
+                  label="Password"
+                  value={this.state.password}
+                  onChangeText={e => this.setState({password: e})}
+                 />
+             </CardSection>
 
-            <CardSection>
-            {this.renderButton()}
-            </CardSection>
-           
-
-       </Card>
+              <CardSection>
+                <Button onPress={this.onButtonPress.bind(this)}>
+                    Log in
+                </Button>
+              </CardSection>
+         </Card>
+      </View>
     );
+  }
 }
+
+
+const mapStateToProps = state => {
+  const { session } = state
+  return {
+    session
+  }
 }
-export default SignInScreen;
+
+
+const containerStyle = {
+  flex: 1,
+  alignItems: 'center',
+  justifyContent: 'center',
+  heigth: '80%',
+  width: '90%'
+}
+
+export default connect(mapStateToProps)(SignInScreen);
