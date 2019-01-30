@@ -5,7 +5,10 @@ import {
 	REQUEST_IN_PROGRESS,
 	REQUEST_COMPLETE,
 	REQUEST_ERROR,
-	LOAD_SESSION
+	LOAD_SESSION,
+	NAV_TO_STATE,
+	CREATE_USER,
+	LOGOUT
 } from '../types'
 
 
@@ -26,10 +29,9 @@ const getPersistedData = (state = {}, action) => {
 const loadSession = (state = {}, action) => {
 	switch(action.type){
 		case LOAD_SESSION:
-			console.log('sessionLoad', action)
 			return {
 				...state,
-				user: { ...action.user },
+				user: action.user,
 				session: action.session
 				}
 			default: 
@@ -37,7 +39,32 @@ const loadSession = (state = {}, action) => {
 	}
 }
 
+const logout = (state = {}, action) => {
+	switch(action.type){
+		case LOGOUT:
+		// not sure if clearing whole state is allowed
+			return {
+				...state,
+				session: null,
+				user: null
+			}
+		default:
+			return state
+	}
+}
+
+const createUser = (state = {}, action) => {
+	switch(action.type){
+		case CREATE_USER: 
+			return {
+				user: action.user,
+				session: action.session
+			}
+	}
+};
+
 export default {
 	getPersistedData,
-	loadSession
+	loadSession,
+	logout
 	};
