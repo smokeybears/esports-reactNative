@@ -7,6 +7,7 @@ import StreamScreen from '../Screens/StreamScreen';
 import ScoreScreen from '../Screens/ScoreScreen';
 import DiscussionScreen from '../Screens/DiscussionScreen';
 import ProfileScreen from '../Screens/ProfileScreen';
+import Profile from '../Screens/Profile';
 
 
 
@@ -54,7 +55,7 @@ LinksStack.navigationOptions = {
 };
 
 const SettingsStack = createStackNavigator({
-  Settings: ProfileScreen,
+  Settings: Profile,
 });
 
 SettingsStack.navigationOptions = {
@@ -68,7 +69,7 @@ SettingsStack.navigationOptions = {
 };
 
 export default createBottomTabNavigator({
- 
+
   HomeStack,
   AuthStack,
   LinksStack,

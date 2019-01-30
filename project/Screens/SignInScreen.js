@@ -9,7 +9,7 @@ class SignInScreen extends Component {
 
   onButtonPress() {
     this.props.navigation.navigate('HomeStack');
-        
+
 }
 
   renderButton() {
@@ -41,7 +41,7 @@ class SignInScreen extends Component {
             <CardSection>
             {this.renderButton()}
             </CardSection>
-           
+
 
        </Card>
     );
