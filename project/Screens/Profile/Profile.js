@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Card, Icon } from 'react-native-elements'
+import { Card, Icon, Header, Button } from 'react-native-elements'
 import {
   Image,
   ImageBackground,
