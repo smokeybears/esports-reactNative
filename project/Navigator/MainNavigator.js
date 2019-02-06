@@ -8,11 +8,16 @@ import ScoreScreen from '../Screens/ScoreScreen';
 import DiscussionScreen from '../Screens/DiscussionScreen';
 import ProfileScreen from '../Screens/ProfileScreen';
 import Profile from '../Screens/Profile';
+import Preference from '../Screens/Profile/Prefrences'
 
+const PreferenceStack = createStackNavigator({
+  Preference: Preference,
 
+});
 
 const HomeStack = createStackNavigator({
   Home: StreamScreen,
+
 });
 
 HomeStack.navigationOptions = {

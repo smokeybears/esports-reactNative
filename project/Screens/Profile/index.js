@@ -2,12 +2,15 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { Button } from 'react-native-elements'
 import Icon from 'react-native-vector-icons/FontAwesome';
-
 import contactData from './contact.json'
-
+import PrefrencesScreen from './Prefrences.js'
 import Profile from './Profile'
+import { StackNavigator } from 'react-navigation';
+
+
 
 const ProfileScreen = () => <Profile {...contactData} />
+const { navigate } = this.props.navigation;
 
 ProfileScreen.navigationOptions = () => ({
   headerTitle: 'Profile',
@@ -21,7 +24,7 @@ ProfileScreen.navigationOptions = () => ({
     ),
   headerLeft: (
     <Button
-      onPress={() => alert('Prefrences')}
+      onPress={() => navigate('PreferenceStack')}
       icon={ <Icon name="bars" size={25} color="black" /> }
       backgroundColor='white'
       type='clear'
