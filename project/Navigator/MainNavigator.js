@@ -8,8 +8,6 @@ import ScoreScreen from '../Screens/ScoreScreen';
 import DiscussionScreen from '../Screens/DiscussionScreen';
 import ProfileScreen from '../Screens/ProfileScreen';
 
-
-
 const HomeStack = createStackNavigator({
   Home: StreamScreen,
 });
