@@ -29,15 +29,16 @@ import SettingsList from 'react-native-settings-list';
            <SettingsList borderColor='#c8c7cc' defaultItemSize={40}>
            <SettingsList.Header headerText='General' headerStyle={{color:'black'}}/>
              <SettingsList.Item
-               icon={<Image style={styles.imageStyle} source={require('./about.png')}/>}
+               icon={<Image style={styles.imageStyle} source={require('../assets/images/notifications.png')}/>}
                hasSwitch={false}
                //switchState={this.state.switchValue}
                //switchOnValueChange={this.onValueChange}
                hasNavArrow={true}
                title='Notifications'
+               onPress={() => Alert.alert('Route to Wifi Page')}
              />
              <SettingsList.Item
-               icon={<Image style={styles.imageStyle} source={require('./about.png')}/>}
+               icon={<Image style={styles.imageStyle} source={require('../assets/images/mode.png')}/>}
                title='Night Mode'
                hasSwitch={true}
                switchState={this.state.switchValue}
@@ -45,7 +46,7 @@ import SettingsList from 'react-native-settings-list';
                hasNavArrow={false}
              />
              <SettingsList.Item
-               icon={<Image style={styles.imageStyle} source={require('./about.png')}/>}
+               icon={<Image style={styles.imageStyle} source={require('../assets/images/payment.png')}/>}
                hasSwitch={false}
                //switchState={this.state.switchValue}
                //switchOnValueChange={this.onValueChange}
@@ -53,7 +54,7 @@ import SettingsList from 'react-native-settings-list';
                title='Payments'
              />
              <SettingsList.Item
-               icon={<Image style={styles.imageStyle} source={require('./about.png')}/>}
+               icon={<Image style={styles.imageStyle} source={require('../assets/images/ads.png')}/>}
                hasSwitch={false}
                //switchState={this.state.switchValue}
                //switchOnValueChange={this.onValueChange}
@@ -61,7 +62,7 @@ import SettingsList from 'react-native-settings-list';
                title='Ads'
              />
              <SettingsList.Item
-               icon={<Image style={styles.imageStyle} source={require('./about.png')}/>}
+               icon={<Image style={styles.imageStyle} source={require('../assets/images/account.png')}/>}
                hasSwitch={false}
                //switchState={this.state.switchValue}
                //switchOnValueChange={this.onValueChange}
@@ -69,7 +70,7 @@ import SettingsList from 'react-native-settings-list';
                title='Account'
              />
              <SettingsList.Item
-               icon={<Image style={styles.imageStyle} source={require('./about.png')}/>}
+               icon={<Image style={styles.imageStyle} source={require('../assets/images/help.png')}/>}
                hasSwitch={false}
                //switchState={this.state.switchValue}
                //switchOnValueChange={this.onValueChange}
@@ -77,7 +78,7 @@ import SettingsList from 'react-native-settings-list';
                title='Help'
              />
              <SettingsList.Item
-               icon={<Image style={styles.imageStyle} source={require('./about.png')}/>}
+               icon={<Image style={styles.imageStyle} source={require('../assets/images/about.png')}/>}
                hasSwitch={false}
                hasNavArrow={true}
                title='About'
