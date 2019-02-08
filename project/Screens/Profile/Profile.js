@@ -1,249 +1,107 @@
-import React, { Component } from 'react'
-import { Card, Icon, Header, Button } from 'react-native-elements'
+import React, { Component } from 'react';
 import {
-  Image,
-  ImageBackground,
-  Linking,
-  ListView,
-  Platform,
-  ScrollView,
   StyleSheet,
   Text,
   View,
-} from 'react-native'
-import PropTypes from 'prop-types'
+  Image,
+  TouchableOpacity
+} from 'react-native';
+import Icon from 'react-native-vector-icons/FontAwesome';
+import { Button } from 'react-native-elements';
 
-import mainColor from './constants'
+export default class Profile extends Component {
+  static navigationOptions = () => ({
+    headerTitle: 'Profile',
+    headerRight: (
+        <Button
+          onPress={() => alert('Alerts')}
+          icon={ <Icon name="bell-o" size={25} color="black" /> }
+          backgroundColor='white'
+          type='clear'
+        />
+      ),
+    headerLeft: (
+      <Button
+        onPress={() =>   alert('Suppose to go to Pref Screen')}
+        icon={ <Icon name="bars" size={25} color="black" /> }
+        backgroundColor='white'
+        type='clear'
+      />
+    ),
 
-import Email from './Email'
-import Separator from './Separator'
-import Tel from './Tel'
-
-const styles = StyleSheet.create({
-  cardContainer: {
-    backgroundColor: '#FFF',
-    borderWidth: 0,
-    flex: 1,
-    margin: 0,
-    padding: 0,
-  },
-  container: {
-    flex: 1,
-  },
-  emailContainer: {
-    backgroundColor: '#FFF',
-    flex: 1,
-    paddingTop: 30,
-  },
-  headerBackgroundImage: {
-    paddingBottom: 20,
-    paddingTop: 35,
-  },
-  headerContainer: {},
-  headerColumn: {
-    backgroundColor: 'transparent',
-    ...Platform.select({
-      ios: {
-        alignItems: 'center',
-        elevation: 1,
-        marginTop: -1,
-      },
-      android: {
-        alignItems: 'center',
-      },
-    }),
-  },
-  placeIcon: {
-    color: 'white',
-    fontSize: 26,
-  },
-  scroll: {
-    backgroundColor: '#FFF',
-  },
-  telContainer: {
-    backgroundColor: '#FFF',
-    flex: 1,
-    paddingTop: 30,
-  },
-  userAddressRow: {
-    alignItems: 'center',
-    flexDirection: 'row',
-  },
-  userCityRow: {
-    backgroundColor: 'transparent',
-  },
-  userCityText: {
-    color: '#A5A5A5',
-    fontSize: 15,
-    fontWeight: '600',
-    textAlign: 'center',
-  },
-  userImage: {
-    borderColor: mainColor,
-    borderRadius: 85,
-    borderWidth: 3,
-    height: 170,
-    marginBottom: 15,
-    width: 170,
-  },
-  userNameText: {
-    color: '#FFF',
-    fontSize: 22,
-    fontWeight: 'bold',
-    paddingBottom: 8,
-    textAlign: 'center',
-  },
-})
-
-class Contact extends Component {
-  static propTypes = {
-    avatar: PropTypes.string.isRequired,
-    avatarBackground: PropTypes.string.isRequired,
-    name: PropTypes.string.isRequired,
-    address: PropTypes.shape({
-      city: PropTypes.string.isRequired,
-      country: PropTypes.string.isRequired,
-    }).isRequired,
-    emails: PropTypes.arrayOf(
-      PropTypes.shape({
-        email: PropTypes.string.isRequired,
-        id: PropTypes.number.isRequired,
-        name: PropTypes.string.isRequired,
-      })
-    ).isRequired,
-    tels: PropTypes.arrayOf(
-      PropTypes.shape({
-        id: PropTypes.number.isRequired,
-        name: PropTypes.string.isRequired,
-        number: PropTypes.string.isRequired,
-      })
-    ).isRequired,
-  }
-
-  state = {
-    telDS: new ListView.DataSource({
-      rowHasChanged: (r1, r2) => r1 !== r2,
-    }).cloneWithRows(this.props.tels),
-    emailDS: new ListView.DataSource({
-      rowHasChanged: (r1, r2) => r1 !== r2,
-    }).cloneWithRows(this.props.emails),
-  }
-
-  onPressPlace = () => {
-    console.log('place')
-  }
-
-  onPressTel = number => {
-    Linking.openURL(`tel://${number}`).catch(err => console.log('Error:', err))
-  }
-
-  onPressSms = () => {
-    console.log('sms')
-  }
-
-  onPressEmail = email => {
-    Linking.openURL(`mailto://${email}?subject=subject&body=body`).catch(err =>
-      console.log('Error:', err)
-    )
-  }
-
-  renderHeader = () => {
-    const {
-      avatar,
-      avatarBackground,
-      name,
-      address: { city, country },
-    } = this.props
-
-    return (
-      <View style={styles.headerContainer}>
-        <ImageBackground
-          style={styles.headerBackgroundImage}
-          blurRadius={3}
-          source={{
-            uri: avatarBackground,
-          }}
-        >
-          <View style={styles.headerColumn}>
-            <Image
-              style={styles.userImage}
-              source={{
-                uri: avatar,
-              }}
-            />
-            <Text style={styles.userNameText}>{name}</Text>
-            <View style={styles.userAddressRow}>
-              <View>
-                <Icon
-                  name="place"
-                  underlayColor="transparent"
-                  iconStyle={styles.placeIcon}
-                  onPress={this.onPressPlace}
-                />
-              </View>
-              <View style={styles.userCityRow}>
-                <Text style={styles.userCityText}>
-                  {city}, {country}
-                </Text>
-              </View>
-            </View>
-          </View>
-        </ImageBackground>
-      </View>
-    )
-  }
-
-  renderTel = () => (
-    <ListView
-      contentContainerStyle={styles.telContainer}
-      dataSource={this.state.telDS}
-      renderRow={({ id, name, number }, _, k) => {
-        return (
-          <Tel
-            key={`tel-${id}`}
-            index={k}
-            name={name}
-            number={number}
-            onPressSms={this.onPressSms}
-            onPressTel={this.onPressTel}
-          />
-        )
-      }}
-    />
-  )
-
-  renderEmail = () => (
-    <ListView
-      contentContainerStyle={styles.emailContainer}
-      dataSource={this.state.emailDS}
-      renderRow={({ email, id, name }, _, k) => {
-        return (
-          <Email
-            key={`email-${id}`}
-            index={k}
-            name={name}
-            email={email}
-            onPressEmail={this.onPressEmail}
-          />
-        )
-      }}
-    />
-  )
+  })
 
   render() {
     return (
-      <ScrollView style={styles.scroll}>
-        <View style={styles.container}>
-          <Card containerStyle={styles.cardContainer}>
-            {this.renderHeader()}
-            {this.renderTel()}
-            {Separator()}
-            {this.renderEmail()}
-          </Card>
+      <View style={styles.container}>
+          <Image style={styles.header} source={{uri: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSZOlct3fO3li1BTgUjTpw2Yks_DxN5CsZYWyv2CfaItpLBWtXj'}}/>
+          <Image style={styles.avatar} source={{uri: 'https://www.apu.edu/faculty/photos/dgrissom.jpg?mdate=1546974979'}}/>
+          <View style={styles.body}>
+            <View style={styles.bodyContent}>
+              <Text style={styles.name}>Dan Grissom</Text>
+              <Text style={styles.info}>Professional Pong Player</Text>
+
+              <TouchableOpacity style={styles.buttonContainer}>
+                <Text> Pong </Text>
+              </TouchableOpacity>
+              <TouchableOpacity style={styles.buttonContainer}>
+                <Text> Pong 2</Text>
+              </TouchableOpacity>
+            </View>
         </View>
-      </ScrollView>
-    )
+      </View>
+    );
   }
 }
 
-export default Contact
+const styles = StyleSheet.create({
+  header:{
+    backgroundColor: "#00BFFF",
+    height:200,
+  },
+  avatar: {
+    width: 130,
+    height: 130,
+    borderRadius: 63,
+    borderWidth: 4,
+    borderColor: "white",
+    marginBottom:10,
+    alignSelf:'center',
+    position: 'absolute',
+    marginTop:130
+  },
+  name:{
+    fontSize:22,
+    color:"#FFFFFF",
+    fontWeight:'600',
+  },
+  body:{
+    marginTop:40,
+  },
+  bodyContent: {
+  //  flex: 1,
+    alignItems: 'center',
+    padding:30,
+  },
+  name:{
+    fontSize:28,
+    color: "black",
+    fontWeight: "600"
+  },
+  info:{
+    fontSize:16,
+    color: "black",
+    marginTop:10
+  },
+  buttonContainer: {
+    marginTop:10,
+    height:45,
+    flexDirection: 'row',
+    justifyContent: 'center',
+    alignItems: 'center',
+    marginBottom:10,
+    width:250,
+    borderRadius:30,
+    backgroundColor: "#00BFFF",
+  },
+});
