@@ -11,15 +11,14 @@ class ScoreScreen extends Component {
         return(
             <ScrollView> 
                 <Button 
-                large 
-                title = "Fortnite" 
                 style = {styles.buttonStyle}
-                overrides={backgroundColor= '#551a8b'}
                 icon={ 
                     <Image source = {require('../assets/images/fortnite.jpg')}
                     style = {styles.IconStyle} />}  
-                   
-                    />
+                    title="Fortnite"
+                />
+
+
                 <Button large title = "Leagur of Legends" style= {styles.buttonStyle} 
                  icon={ 
                     <Image source = {require('../assets/images/LOL.png')}
@@ -66,18 +65,20 @@ class ScoreScreen extends Component {
 
 const styles = {
     buttonStyle:{
-       padding:10,
-     
+       padding:10,     
     },
 
     IconStyle:{
 
         flex: 1,
-        width: 50,
-        height: 50,
-        resizeMode: 'contain'
-            }
+        width: 40,
+        height: 40,
+        resizeMode: 'contain',
+        position: "absolute", left: 0
         
+            },
+        
+  
            
 
         
