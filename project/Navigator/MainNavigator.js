@@ -6,10 +6,11 @@ import TabBarIcon from '../components/TabBarIcon';
 import StreamScreen from '../Screens/StreamScreen';
 import ScoreScreen from '../Screens/ScoreScreen';
 import DiscussionScreen from '../Screens/DiscussionScreen';
-import ProfileScreen from '../Screens/ProfileScreen';
+import Profile from '../Screens/Profile/Profile';
 
 const HomeStack = createStackNavigator({
   Home: StreamScreen,
+
 });
 
 HomeStack.navigationOptions = {
@@ -52,7 +53,7 @@ LinksStack.navigationOptions = {
 };
 
 const SettingsStack = createStackNavigator({
-  Settings: ProfileScreen,
+  Settings: Profile,
 });
 
 SettingsStack.navigationOptions = {

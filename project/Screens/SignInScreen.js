@@ -23,10 +23,10 @@ class SignInScreen extends Component {
   }
 
   onLoginButtonPress() {
-    // attemptLogin also loads profile, a bit misleading 
+    // attemptLogin also loads profile, a bit misleading
     return this.props.dispatch(attemptLogin(
       {
-        username: this.state.username, 
+        username: this.state.username,
         password:this.state.password,
         navigation: this.props.navigation
       }))
