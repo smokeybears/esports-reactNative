@@ -70,6 +70,7 @@ import { Button } from 'react-native';
                //switchOnValueChange={this.onValueChange}
                hasNavArrow={true}
                title='Account'
+               onPress={() => this.props.navigation.navigate('Profile') }
              />
              <SettingsList.Item
                icon={<Image style={styles.imageStyle} source={require('../assets/images/help.png')}/>}
