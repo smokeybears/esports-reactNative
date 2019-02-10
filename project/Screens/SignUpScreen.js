@@ -2,12 +2,12 @@ import React , { Component } from 'react';
 import { connect } from 'react-redux';
 import { Text, View } from "react-native";
 import { Button, Card, CardSection, Input, Spinner} from '../components/common';
-import { attemptLogin } from '../redux/actions'
+import { createUser } from '../redux/actions'
 import { NavigationActions } from 'react-navigation'
 
-class SignInScreen extends Component {
+class SignUpScreen extends Component {
   static navigationOptions = {
-    title: 'SignIn',
+    title: 'SignUp',
   };
 
   constructor(props){
@@ -15,29 +15,27 @@ class SignInScreen extends Component {
     //this.props.navigation.navigate('Settings')
     this.state = {
       username: '',
-      password: ''
+      password: '',
+      email: ''
     }
-    // this.props.dispatch(navToState({
-    //   navigation: this.props.navigation
-    // })
   }
 
-  onLoginButtonPress() {
-    // attemptLogin also loads profile, a bit misleading
-    return this.props.dispatch(attemptLogin(
+  onButtonPress() {
+    // attemptLogin also loads profile, a bit misleading 
+    return this.props.dispatch(createUser(
       {
         username: this.state.username,
-        password:this.state.password,
+        password: this.state.password,
+        email: this.state.email,
         navigation: this.props.navigation
       }))
   }
 
-  onCreatAccountButtonPress(){
-   return this.props.navigation.navigate('SignUp')
+  goToLoginScreen(){
+    return this.props.navigation.navigate('SignIn')
   }
 
   render() {
-
     return (
      <View style={containerStyle}>
          <Card>
@@ -54,6 +52,15 @@ class SignInScreen extends Component {
 
              <CardSection>
                  <Input
+                  placeholder="email"
+                  label="email"
+                  value={this.state.email}
+                  onChangeText={e => this.setState({email: e})}
+                 />
+             </CardSection>
+
+             <CardSection>
+                 <Input
                   secureTextEntry
                   placeholder="password"
                   label="Password"
@@ -62,15 +69,16 @@ class SignInScreen extends Component {
                  />
              </CardSection>
 
-              <CardSection>
-                <Button onPress={this.onLoginButtonPress.bind(this)}>
-                    Log in
-                </Button>
-              </CardSection>
+
 
               <CardSection>
-                <Button onPress={this.onCreatAccountButtonPress.bind(this)}>
+                <Button onPress={this.onButtonPress.bind(this)}>
                     Create Account
+                </Button>
+              </CardSection>
+              <CardSection>
+                <Button onPress={this.goToLoginScreen.bind(this)}>
+                    Login
                 </Button>
               </CardSection>
          </Card>
@@ -81,7 +89,7 @@ class SignInScreen extends Component {
 
 
 const mapStateToProps = state => {
-  const { session } = state
+  const { session } = state;
   return {
     session
   }
@@ -98,4 +106,4 @@ const containerStyle = {
   width: '100%'
 }
 
-export default connect(mapStateToProps)(SignInScreen);
+export default connect(mapStateToProps)(SignUpScreen);

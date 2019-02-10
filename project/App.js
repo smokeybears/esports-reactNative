@@ -12,7 +12,6 @@ import reducers from './redux/reducers'
 import AppNavigator from './Navigator/AppNavigator'
 
 
-
 export default class App extends React.Component {
   state = {
     isLoadingComplete: false,
@@ -75,10 +74,8 @@ export default class App extends React.Component {
     } else {
       return (
         <Provider store={this.store}>
-          <View style={styles.container}>
-            {Platform.OS === 'ios' && <StatusBar barStyle="default" />}
-            <AppNavigator />
-          </View>
+          {Platform.OS === 'ios' && <StatusBar barStyle="default" />}
+          <AppNavigator />
         </Provider>
       );
     }

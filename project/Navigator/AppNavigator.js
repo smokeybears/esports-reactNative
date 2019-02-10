@@ -1,7 +1,8 @@
 import React from 'react';
 import { createAppContainer, createSwitchNavigator } from 'react-navigation';
 import SignInScreen from '../Screens/SignInScreen';
-import profileScreen from '../Screens/ProfileScreen'
+import SignUpScreen from '../Screens/SignUpScreen';
+import profileScreen from '../Screens/ProfileScreen';
 import MainTabNavigator from './MainNavigator';
 import SettingsScreen from '../Screens/SettingsScreen';
 import NotificationsScreen from '../Screens/NotificationsScreen';
@@ -15,6 +16,7 @@ export default createAppContainer(createSwitchNavigator({
   Settings: SettingsScreen,
   //Main: profileScreen,
   SignIn: SignInScreen,
+  SignUp: SignUpScreen,
   Notifications: NotificationsScreen,
   Score: ScoreScreen,
   About: AboutScreen,
