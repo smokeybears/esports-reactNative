@@ -4,11 +4,20 @@ import SignInScreen from '../Screens/SignInScreen';
 import profileScreen from '../Screens/ProfileScreen'
 import MainTabNavigator from './MainNavigator';
 import SettingsScreen from '../Screens/SettingsScreen';
+import NotificationsScreen from '../Screens/NotificationsScreen';
+import ScoreScreen from '../Screens/ScoreScreen';
+import AboutScreen from '../Screens/AboutScreen';
+import HelpScreen from '../Screens/HelpScreen';
 
 export default createAppContainer(createSwitchNavigator({
   // You could add another route here for authentication.
   // Read more at https://reactnavigation.org/docs/en/auth-flow.html
-  Main: SettingsScreen,
+  Settings: SettingsScreen,
   //Main: profileScreen,
-  //SignIn: SignInScreen,
+  SignIn: SignInScreen,
+  Notifications: NotificationsScreen,
+  Score: ScoreScreen,
+  About: AboutScreen,
+  Help: HelpScreen,
+
 }));
