@@ -1,3 +1,4 @@
+'use strict';
 import React, { Component } from 'react';
 import {
   StyleSheet,
@@ -10,6 +11,12 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 import { Button } from 'react-native-elements';
 
 export default class Profile extends Component {
+  constructor(props) {
+    super(props);
+    //this.onValueChange = this.onValueChange.bind(this);
+    //this.state = {switchValue: false};
+  }
+
   static navigationOptions = () => ({
     headerTitle: 'Profile',
     headerRight: (
@@ -22,7 +29,7 @@ export default class Profile extends Component {
       ),
     headerLeft: (
       <Button
-        onPress={() =>   alert('Suppose to go to Pref Screen')}
+        onPress={() => this.props.navigation.navigate('Settings')}
         icon={ <Icon name="bars" size={25} color="black" /> }
         backgroundColor='white'
         type='clear'
