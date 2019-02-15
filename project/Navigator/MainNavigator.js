@@ -7,7 +7,7 @@ import StreamScreen from '../Screens/StreamScreen';
 import ScoreScreen from '../Screens/ScoreScreen';
 import DiscussionScreen from '../Screens/DiscussionScreen';
 import Profile from '../Screens/Profile/Profile';
-
+import SettingsScreen from '../Screens/SettingsScreen';
 const HomeStack = createStackNavigator({
   Home: StreamScreen,
 
@@ -52,11 +52,12 @@ LinksStack.navigationOptions = {
   ),
 };
 
-const SettingsStack = createStackNavigator({
-  Settings: Profile,
+const ProfileStack = createStackNavigator({
+  Profile,
+  Settings: SettingsScreen
 });
 
-SettingsStack.navigationOptions = {
+ProfileStack.navigationOptions = {
   tabBarLabel: 'Profile',
   tabBarIcon: ({ focused }) => (
     <TabBarIcon
@@ -70,5 +71,5 @@ export default createBottomTabNavigator({
   HomeStack,
   AuthStack,
   LinksStack,
-  SettingsStack,
+  ProfileStack,
 });
