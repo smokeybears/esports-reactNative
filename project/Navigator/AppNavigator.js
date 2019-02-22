@@ -4,11 +4,13 @@ import SignInScreen from '../Screens/SignInScreen';
 import SignUpScreen from '../Screens/SignUpScreen';
 import profileScreen from '../Screens/Profile/Profile';
 import MainTabNavigator from './MainNavigator';
+
 import NotificationsScreen from '../Screens/NotificationsScreen';
 import ScoreScreen from '../Screens/ScoreScreen';
 import AboutScreen from '../Screens/AboutScreen';
 import HelpScreen from '../Screens/HelpScreen';
 import GameScoreScreen from '../Screens/GameScoreScreen';
+
 
 export default createAppContainer(createSwitchNavigator({
   // You could add another route here for authentication.
@@ -22,6 +24,7 @@ export default createAppContainer(createSwitchNavigator({
   Profile: profileScreen,
   SignIn: SignInScreen,
   SignUp: SignUpScreen,
+
   Notifications: NotificationsScreen,
   Score: ScoreScreen,
   About: AboutScreen,

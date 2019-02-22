@@ -5,12 +5,13 @@ import {
   Text,
   View,
   Image,
-  TouchableOpacity
-} from 'react-native';
+  TouchableOpacity,
+  } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { Button } from 'react-native-elements';
 
 export default class Profile extends Component {
+
   static navigationOptions = ({navigation}) => {
     const {params = {}} = navigation.state;
     return {
@@ -63,6 +64,10 @@ export default class Profile extends Component {
               <TouchableOpacity style={styles.buttonContainer}>
                 <Text> Pong 2</Text>
               </TouchableOpacity>
+              <Button large title = "Leagur of Legends" style= {styles.buttonContainer}
+               icon={
+                  <Image source = {require('../../assets/images/LOL.png')}
+                  style = {styles.IconStyle} />}/>
             </View>
         </View>
       </View>
@@ -75,6 +80,15 @@ const styles = StyleSheet.create({
     backgroundColor: "#00BFFF",
     height:200,
   },
+  IconStyle:{
+      flex: 1,
+      width: 40,
+      height: 40,
+      resizeMode: 'contain',
+      position: "absolute",
+      left: 0
+
+          },
   avatar: {
     width: 130,
     height: 130,

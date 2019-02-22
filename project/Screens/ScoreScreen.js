@@ -9,16 +9,19 @@ class ScoreScreen extends Component {
   };
     render(){
         return(
-            <ScrollView> 
-                <Button 
+            <ScrollView>
+                <Button
                 style = {styles.buttonStyle}
+
                 icon={ 
                     <Image source = {require('../assets/images/GamesIcon/fortnite.jpg')}
                     style = {styles.IconStyle} />}  
+
                     title="Fortnite"
                     onPress={() => this.props.navigation.navigate('GameScore',
                     {prevScreenTitle: 'Fortnite'})}
                 />
+
 
 
                 <Button  
@@ -90,12 +93,13 @@ class ScoreScreen extends Component {
                     onPress={() => this.props.navigation.navigate('GameScore',
                     {prevScreenTitle: 'Overwatch'})}
                     />
+
                 </ScrollView>
-           
-            
-           
-            
-           
+
+
+
+
+
         );
     }
 }
@@ -103,22 +107,37 @@ class ScoreScreen extends Component {
 
 const styles = {
     buttonStyle:{
-       padding:10,     
+       padding:10,
     },
-
+    buttonContainer: {
+      marginTop:10,
+      height:45,
+      flexDirection: 'row',
+      justifyContent: 'center',
+      alignItems: 'center',
+      marginBottom:10,
+      width:250,
+      borderRadius:30,
+      backgroundColor: "#00BFFF",
+    },
     IconStyle:{
         flex: 1,
         width: 40,
         height: 40,
         resizeMode: 'contain',
         position: "absolute", left: 0
+
     },
         
   
            
 
-        
-    
+
+
+
+
+
+
 };
 
 export default ScoreScreen;
