@@ -11,38 +11,42 @@ import Icon from 'react-native-vector-icons/FontAwesome';
 import { Button } from 'react-native-elements';
 
 export default class Profile extends Component {
-  constructor(props) {
-    super(props);
-    //this.onValueChange = this.onValueChange.bind(this);
-    //this.state = {switchValue: false};
-  }
 
-  static navigationOptions = () => ({
-    headerStyle: {
-      backgroundColor: '#3F53B1',
-    },
-    headerTitleStyle: {
-      color: 'white',
-    },
-    headerTitle: 'Profile',
-    headerRight: (
+  static navigationOptions = ({navigation}) => {
+    const {params = {}} = navigation.state;
+    return {
+      headerTitle: 'Profile',
+      headerRight: (
+          <Button
+            onPress={() => alert('Alerts')}
+            icon={ <Icon name="bell-o" size={25} color="black" /> }
+            backgroundColor='white'
+            type='clear'
+          />
+        ),
+      headerLeft: (
         <Button
-          onPress={() => alert('Alerts')}
-          icon={ <Icon name="bell-o" size={25} color="white" /> }
+          onPress={() => params.leftNav()}
+          icon={ <Icon name="bars" size={25} color="black" /> }
           backgroundColor='white'
           type='clear'
         />
-      ),
-    headerLeft: (
-      <Button
-        onPress={() => this.props.navigation.navigate('Settings')}
-        icon={ <Icon name="bars" size={25} color="white" /> }
-        backgroundColor='white'
-        type='clear'
-      />
-    ),
+      )
+    }
+  }
 
-  })
+  constructor(props) {
+    super(props);
+    // Set the param in navigation.state.params for the 
+    // static headerLeft
+    this.props.navigation.setParams({leftNav: this.goToSettings});
+  }
+
+  goToSettings = (e) => {
+    console.log(this.props.navigation.state)
+    return this.props.navigation.navigate('Settings')
+  }
+
 
   render() {
     return (
