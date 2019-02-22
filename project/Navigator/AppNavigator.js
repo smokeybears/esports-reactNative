@@ -25,5 +25,5 @@ export default createAppContainer(createSwitchNavigator({
   Score: ScoreScreen,
   About: AboutScreen,
   Help: HelpScreen,
-
+  // 
 }));

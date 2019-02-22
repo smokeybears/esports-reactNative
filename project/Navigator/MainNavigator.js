@@ -1,13 +1,15 @@
 import React from 'react';
 import { Platform } from 'react-native';
 import { createStackNavigator, createBottomTabNavigator } from 'react-navigation';
-
 import TabBarIcon from '../components/TabBarIcon';
 import StreamScreen from '../Screens/StreamScreen';
 import ScoreScreen from '../Screens/ScoreScreen';
 import DiscussionScreen from '../Screens/DiscussionScreen';
 import Profile from '../Screens/Profile/Profile';
 import SettingsScreen from '../Screens/SettingsScreen';
+
+import CreateForum from '../Screens/forum/createForum'
+
 const HomeStack = createStackNavigator({
   Home: StreamScreen,
 
@@ -38,11 +40,11 @@ AuthStack.navigationOptions = {
   ),
 };
 
-const LinksStack = createStackNavigator({
-  Links: DiscussionScreen,
+const ForumsStack = createStackNavigator({
+  Forum: CreateForum,
 });
 
-LinksStack.navigationOptions = {
+ForumsStack.navigationOptions = {
   tabBarLabel: 'Discussion',
   tabBarIcon: ({ focused }) => (
     <TabBarIcon
@@ -70,6 +72,6 @@ ProfileStack.navigationOptions = {
 export default createBottomTabNavigator({
   HomeStack,
   AuthStack,
-  LinksStack,
+  ForumsStack,
   ProfileStack,
 });

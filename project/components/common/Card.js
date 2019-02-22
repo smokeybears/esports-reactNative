@@ -24,7 +24,10 @@ const styles = {
         marginRight: 5,
         marginTop: 10,
         width: '100%',
-        heigh: '100%'
+        heigh: '100%',
+        // flex: 1,
+        // justifyContent: 'center',
+        // alignItems: 'center'
     }
 };
 
