@@ -8,6 +8,15 @@ import ScoreScreen from '../Screens/ScoreScreen';
 import DiscussionScreen from '../Screens/DiscussionScreen';
 import Profile from '../Screens/Profile/Profile';
 import SettingsScreen from '../Screens/SettingsScreen';
+import GameScoreScreen from '../Screens/GameScoreScreen'
+
+
+const GameScoreStack = createStackNavigator({
+  GameScore: GameScoreScreen,
+  
+});
+
+
 const HomeStack = createStackNavigator({
   Home: StreamScreen,
 
@@ -26,6 +35,8 @@ HomeStack.navigationOptions = {
 
 const AuthStack = createStackNavigator({
   Auth: ScoreScreen,
+  GameScore: GameScoreScreen
+  
 });
 
 AuthStack.navigationOptions = {
@@ -65,11 +76,14 @@ ProfileStack.navigationOptions = {
       name={Platform.OS === 'ios' ? `ios-contact` : 'md-contact'}
     />
   ),
+  
 };
+
 
 export default createBottomTabNavigator({
   HomeStack,
   AuthStack,
   LinksStack,
   ProfileStack,
+  
 });

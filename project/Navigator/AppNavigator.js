@@ -9,6 +9,7 @@ import NotificationsScreen from '../Screens/NotificationsScreen';
 import ScoreScreen from '../Screens/ScoreScreen';
 import AboutScreen from '../Screens/AboutScreen';
 import HelpScreen from '../Screens/HelpScreen';
+import GameScoreScreen from '../Screens/GameScoreScreen';
 
 
 export default createAppContainer(createSwitchNavigator({
@@ -28,5 +29,6 @@ export default createAppContainer(createSwitchNavigator({
   Score: ScoreScreen,
   About: AboutScreen,
   Help: HelpScreen,
+  GameScore: GameScoreScreen,
 
 }));
