@@ -1,29 +1,42 @@
+'use strict';
 import React, { Component } from 'react';
 import {
   StyleSheet,
   Text,
   View,
   Image,
-  TouchableOpacity
-} from 'react-native';
+  TouchableOpacity,
+  } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { Button } from 'react-native-elements';
 
 export default class Profile extends Component {
+  constructor(props) {
+    super(props);
+    //this.onValueChange = this.onValueChange.bind(this);
+    //this.state = {switchValue: false};
+  }
+
   static navigationOptions = () => ({
+    headerStyle: {
+      backgroundColor: '#3F53B1',
+    },
+    headerTitleStyle: {
+      color: 'white',
+    },
     headerTitle: 'Profile',
     headerRight: (
         <Button
           onPress={() => alert('Alerts')}
-          icon={ <Icon name="bell-o" size={25} color="black" /> }
+          icon={ <Icon name="bell-o" size={25} color="white" /> }
           backgroundColor='white'
           type='clear'
         />
       ),
     headerLeft: (
       <Button
-        onPress={() =>   alert('Suppose to go to Pref Screen')}
-        icon={ <Icon name="bars" size={25} color="black" /> }
+        onPress={() => this.props.navigation.navigate('Settings')}
+        icon={ <Icon name="bars" size={25} color="white" /> }
         backgroundColor='white'
         type='clear'
       />
@@ -47,6 +60,10 @@ export default class Profile extends Component {
               <TouchableOpacity style={styles.buttonContainer}>
                 <Text> Pong 2</Text>
               </TouchableOpacity>
+              <Button large title = "Leagur of Legends" style= {styles.buttonContainer}
+               icon={
+                  <Image source = {require('../../assets/images/LOL.png')}
+                  style = {styles.IconStyle} />}/>
             </View>
         </View>
       </View>
@@ -59,6 +76,15 @@ const styles = StyleSheet.create({
     backgroundColor: "#00BFFF",
     height:200,
   },
+  IconStyle:{
+      flex: 1,
+      width: 40,
+      height: 40,
+      resizeMode: 'contain',
+      position: "absolute",
+      left: 0
+
+          },
   avatar: {
     width: 130,
     height: 130,

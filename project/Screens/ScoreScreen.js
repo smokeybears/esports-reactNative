@@ -9,55 +9,55 @@ class ScoreScreen extends Component {
   };
     render(){
         return(
-            <ScrollView> 
-                <Button 
+            <ScrollView>
+                <Button
                 style = {styles.buttonStyle}
-                icon={ 
+                icon={
                     <Image source = {require('../assets/images/fortnite.jpg')}
-                    style = {styles.IconStyle} />}  
+                    style = {styles.IconStyle} />}
                     title="Fortnite"
                 />
 
 
-                <Button large title = "Leagur of Legends" style= {styles.buttonStyle} 
-                 icon={ 
+                <Button large title = "Leagur of Legends" style= {styles.buttonContainer}
+                 icon={
                     <Image source = {require('../assets/images/LOL.png')}
                     style = {styles.IconStyle} />}/>
                 <Button large title = "DOTA 2"  style= {styles.buttonStyle}
-                icon={ 
+                icon={
                     <Image source = {require('../assets/images/DOTA2.png')}
                     style = {styles.IconStyle} />}/>
 
                 <Button large title = "CSGO"  style= {styles.buttonStyle}
-                icon={ 
+                icon={
                     <Image source = {require('../assets/images/CSGO.png')}
                     style = {styles.IconStyle} />}/>
 
                 <Button large title = "World of Warcraft"  style= {styles.buttonStyle}
-                icon={ 
+                icon={
                     <Image source = {require('../assets/images/WOW.png')}
                     style = {styles.IconStyle} />}/>
 
                 <Button large title = "PUBG"  style= {styles.buttonStyle}
-                icon={ 
+                icon={
                     <Image source = {require('../assets/images/PUBG.png')}
                     style = {styles.IconStyle} />}/>
 
                 <Button large title = "Hearthstone"  style= {styles.buttonStyle}
-                icon={ 
+                icon={
                     <Image source = {require('../assets/images/Hearthstone.png')}
                     style = {styles.IconStyle} />}/>
 
                 <Button large title = "Overwatch"  style= {styles.buttonStyle}
-                icon={ 
+                icon={
                     <Image source = {require('../assets/images/Overwatch.png')}
                     style = {styles.IconStyle} />}/>
                 </ScrollView>
-           
-            
-           
-            
-           
+
+
+
+
+
         );
     }
 }
@@ -65,9 +65,19 @@ class ScoreScreen extends Component {
 
 const styles = {
     buttonStyle:{
-       padding:10,     
+       padding:10,
     },
-
+    buttonContainer: {
+      marginTop:10,
+      height:45,
+      flexDirection: 'row',
+      justifyContent: 'center',
+      alignItems: 'center',
+      marginBottom:10,
+      width:250,
+      borderRadius:30,
+      backgroundColor: "#00BFFF",
+    },
     IconStyle:{
 
         flex: 1,
@@ -75,14 +85,14 @@ const styles = {
         height: 40,
         resizeMode: 'contain',
         position: "absolute", left: 0
-        
-            },
-        
-  
-           
 
-        
-    
+            },
+
+
+
+
+
+
 };
 
 export default ScoreScreen;
