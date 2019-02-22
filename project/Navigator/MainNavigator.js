@@ -35,6 +35,8 @@ HomeStack.navigationOptions = {
 
 const AuthStack = createStackNavigator({
   Auth: ScoreScreen,
+  GameScore: GameScoreScreen
+  
 });
 
 AuthStack.navigationOptions = {
