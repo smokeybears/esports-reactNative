@@ -63,6 +63,8 @@ export default class Profile extends Component {
           <View style={styles.body}>
             <View style={styles.bodyContent}>
               <Text style={styles.name}>Dan Grissom</Text>
+
+
               <Text style={styles.info}>Favorite games:</Text>
               <Button  title = "DOTA 2"  style= {styles.buttonContainer}
                 icon={ 
@@ -83,7 +85,9 @@ export default class Profile extends Component {
                   <Image source = {require('../../assets/images/GamesIcon/LOL.png')}
                   onPress={() => this.props.navigation.navigate('GameScore',
                     {prevScreenTitle: 'League of Legends'})}
+
                   style = {styles.IconStyle} />}/>
+                
             </View>
         </View>
       </View>
