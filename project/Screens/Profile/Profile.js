@@ -63,7 +63,28 @@ export default class Profile extends Component {
           <View style={styles.body}>
             <View style={styles.bodyContent}>
               <Text style={styles.name}>Dan Grissom</Text>
+
+
               <Text style={styles.info}>Favorite games:</Text>
+              <Button  title = "DOTA 2"  style= {styles.buttonContainer}
+                icon={ 
+                    <Image source = {require('../../assets/images/GamesIcon/DOTA2.png')}
+                    style = {styles.IconStyle} />}
+                    onPress={() => this.props.navigation.navigate('GameScore',
+                    {prevScreenTitle: 'DOTA 2'})}
+                    />
+                <Button large title = "Fortnite         " style= {styles.buttonContainer}
+               icon={
+                  <Image source = {require('../../assets/images/GamesIcon/fortnite.jpg')}
+                  onPress={() => this.props.navigation.navigate('GameScore',
+                    {prevScreenTitle: 'Fortnite'})}
+                  style = {styles.IconStyle} />}/>
+                   
+              <Button large title = "League of Legends" style= {styles.buttonContainer}
+               icon={
+                  <Image source = {require('../../assets/images/GamesIcon/LOL.png')}
+                  onPress={() => this.props.navigation.navigate('GameScore',
+                    {prevScreenTitle: 'League of Legends'})}
 
               <Button  title = "DOTA 2"  style= {styles.buttonContainer}
                 icon={ 
