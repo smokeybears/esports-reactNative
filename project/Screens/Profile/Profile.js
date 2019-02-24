@@ -64,10 +64,11 @@ export default class Profile extends Component {
               <TouchableOpacity style={styles.buttonContainer}>
                 <Text> Pong 2</Text>
               </TouchableOpacity>
-              <Button large title = "Leagur of Legends" style= {styles.buttonContainer}
+              <Button large title = "Leagur of Legends" style= {styles.buttonContainer} 
                icon={
-                  <Image source = {require('../../assets/images/LOL.png')}
+                  <Image source = {require('../../assets/images/GamesIcon/LOL.png')}
                   style = {styles.IconStyle} />}/>
+                
             </View>
         </View>
       </View>

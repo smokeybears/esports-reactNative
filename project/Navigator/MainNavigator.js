@@ -8,13 +8,11 @@ import ScoreScreen from '../Screens/ScoreScreen';
 import DiscussionScreen from '../Screens/DiscussionScreen';
 import Profile from '../Screens/Profile/Profile';
 import SettingsScreen from '../Screens/SettingsScreen';
-import GameScoreScreen from '../Screens/GameScoreScreen'
+import GameScoreScreen from '../Screens/GameScoreScreen';
+import GameScore from '../Screens/Scores/Scoreboard';
 
 
-const GameScoreStack = createStackNavigator({
-  GameScore: GameScoreScreen,
-  
-});
+
 
 
 const HomeStack = createStackNavigator({
@@ -35,7 +33,7 @@ HomeStack.navigationOptions = {
 
 const AuthStack = createStackNavigator({
   Auth: ScoreScreen,
-  GameScore: GameScoreScreen
+  GameScore: GameScore
   
 });
 

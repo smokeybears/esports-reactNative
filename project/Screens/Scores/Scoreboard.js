@@ -4,7 +4,7 @@ import {
   StatusBar,
   View,
 } from 'react-native';
-import faker from 'faker';
+//import faker from 'faker';
 import moment from 'moment';
 import Calendar from './Calendar';
 import Events from './Events';
