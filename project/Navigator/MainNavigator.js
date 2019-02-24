@@ -8,13 +8,11 @@ import ScoreScreen from '../Screens/ScoreScreen';
 import DiscussionScreen from '../Screens/DiscussionScreen';
 import Profile from '../Screens/Profile/Profile';
 import SettingsScreen from '../Screens/SettingsScreen';
-import GameScoreScreen from '../Screens/GameScoreScreen'
+import GameScoreScreen from '../Screens/GameScoreScreen';
+import GameScore from '../Screens/Scores/Scoreboard';
 
 
-const GameScoreStack = createStackNavigator({
-  GameScore: GameScoreScreen,
-  
-});
+
 
 
 const HomeStack = createStackNavigator({
@@ -23,6 +21,12 @@ const HomeStack = createStackNavigator({
 });
 
 HomeStack.navigationOptions = {
+  activeTintColor: 'white',
+  tabBarOptions: {
+    style: {
+      backgroundColor: '#3F53B1'
+    }
+  },
   tabBarLabel: 'Stream',
   tabBarIcon: ({ focused }) => (
     <TabBarIcon
@@ -35,11 +39,17 @@ HomeStack.navigationOptions = {
 
 const AuthStack = createStackNavigator({
   Auth: ScoreScreen,
-  GameScore: GameScoreScreen
-  
+  GameScore: GameScore
+
 });
 
 AuthStack.navigationOptions = {
+  tabBarOptions: {
+    activeTintColor: 'white',
+    style: {
+      backgroundColor: '#3F53B1'
+    }
+  },
   tabBarLabel: 'Score',
   tabBarIcon: ({ focused }) => (
     <TabBarIcon
@@ -54,6 +64,12 @@ const LinksStack = createStackNavigator({
 });
 
 LinksStack.navigationOptions = {
+  tabBarOptions: {
+    activeTintColor: 'white',
+    style: {
+      backgroundColor: '#3F53B1'
+    }
+  },
   tabBarLabel: 'Discussion',
   tabBarIcon: ({ focused }) => (
     <TabBarIcon
@@ -69,6 +85,12 @@ const ProfileStack = createStackNavigator({
 });
 
 ProfileStack.navigationOptions = {
+  activeTintColor: 'white',
+  tabBarOptions: {
+    style: {
+      backgroundColor: '#3F53B1'
+    }
+  },
   tabBarLabel: 'Profile',
   tabBarIcon: ({ focused }) => (
     <TabBarIcon
@@ -76,7 +98,6 @@ ProfileStack.navigationOptions = {
       name={Platform.OS === 'ios' ? `ios-contact` : 'md-contact'}
     />
   ),
-  
 };
 
 
@@ -85,5 +106,6 @@ export default createBottomTabNavigator({
   AuthStack,
   LinksStack,
   ProfileStack,
-  
-});
+
+},
+);
