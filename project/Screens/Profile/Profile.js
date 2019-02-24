@@ -15,11 +15,18 @@ export default class Profile extends Component {
   static navigationOptions = ({navigation}) => {
     const {params = {}} = navigation.state;
     return {
+      headerStyle: {
+      backgroundColor: '#3F53B1',
+    },
+    headerTitleStyle: {
+      color: 'white',
+    },
+
       headerTitle: 'Profile',
       headerRight: (
           <Button
             onPress={() => alert('Alerts')}
-            icon={ <Icon name="bell-o" size={25} color="black" /> }
+            icon={ <Icon name="bell-o" size={25} color="white" /> }
             backgroundColor='white'
             type='clear'
           />
@@ -27,7 +34,7 @@ export default class Profile extends Component {
       headerLeft: (
         <Button
           onPress={() => params.leftNav()}
-          icon={ <Icon name="bars" size={25} color="black" /> }
+          icon={ <Icon name="bars" size={25} color="white" /> }
           backgroundColor='white'
           type='clear'
         />
@@ -37,7 +44,7 @@ export default class Profile extends Component {
 
   constructor(props) {
     super(props);
-    // Set the param in navigation.state.params for the 
+    // Set the param in navigation.state.params for the
     // static headerLeft
     this.props.navigation.setParams({leftNav: this.goToSettings});
   }
@@ -64,10 +71,6 @@ export default class Profile extends Component {
               <TouchableOpacity style={styles.buttonContainer}>
                 <Text> Pong 2</Text>
               </TouchableOpacity>
-              <Button large title = "Leagur of Legends" style= {styles.buttonContainer}
-               icon={
-                  <Image source = {require('../../assets/images/LOL.png')}
-                  style = {styles.IconStyle} />}/>
             </View>
         </View>
       </View>

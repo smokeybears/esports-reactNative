@@ -27,13 +27,13 @@ class GameScoreScreen extends Component {
             style={{
           flex: 1,
         }}>
-        
-        <View style={styles.container}> 
+
+        <View style={styles.container}>
         <Text>{this.state.prevScreenTitle}</Text>
         </View>
-      
+
       </GestureRecognizer>
-      
+
         );
     }
     onSwipeRight(gestureState) {
