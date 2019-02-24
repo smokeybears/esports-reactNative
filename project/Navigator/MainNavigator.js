@@ -21,6 +21,12 @@ const HomeStack = createStackNavigator({
 });
 
 HomeStack.navigationOptions = {
+  activeTintColor: 'white',
+  tabBarOptions: {
+    style: {
+      backgroundColor: '#3F53B1'
+    }
+  },
   tabBarLabel: 'Stream',
   tabBarIcon: ({ focused }) => (
     <TabBarIcon
@@ -38,6 +44,12 @@ const AuthStack = createStackNavigator({
 });
 
 AuthStack.navigationOptions = {
+  tabBarOptions: {
+    activeTintColor: 'white',
+    style: {
+      backgroundColor: '#3F53B1'
+    }
+  },
   tabBarLabel: 'Score',
   tabBarIcon: ({ focused }) => (
     <TabBarIcon
@@ -52,6 +64,12 @@ const LinksStack = createStackNavigator({
 });
 
 LinksStack.navigationOptions = {
+  tabBarOptions: {
+    activeTintColor: 'white',
+    style: {
+      backgroundColor: '#3F53B1'
+    }
+  },
   tabBarLabel: 'Discussion',
   tabBarIcon: ({ focused }) => (
     <TabBarIcon
@@ -67,6 +85,12 @@ const ProfileStack = createStackNavigator({
 });
 
 ProfileStack.navigationOptions = {
+  activeTintColor: 'white',
+  tabBarOptions: {
+    style: {
+      backgroundColor: '#3F53B1'
+    }
+  },
   tabBarLabel: 'Profile',
   tabBarIcon: ({ focused }) => (
     <TabBarIcon
@@ -83,4 +107,5 @@ export default createBottomTabNavigator({
   LinksStack,
   ProfileStack,
 
-});
+},
+);

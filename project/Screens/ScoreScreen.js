@@ -31,13 +31,13 @@ class ScoreScreen extends Component {
 
 
                 <Button
-                title = "Leagur of Legends"
+                title = "League of Legends"
                 style= {styles.buttonStyle}
                 icon={
                     <Image source = {require('../assets/images/GamesIcon/LOL.png')}
                     style = {styles.IconStyle} />}
                     onPress={() => this.props.navigation.navigate('GameScore',
-                    {prevScreenTitle: 'Leagur of Legends'})}
+                    {prevScreenTitle: 'League of Legends'})}
                     />
 
 
