@@ -58,15 +58,25 @@ export default class Profile extends Component {
               <Text style={styles.name}>Dan Grissom</Text>
               <Text style={styles.info}>Favorite games:</Text>
 
-              <TouchableOpacity style={styles.buttonContainer}>
-                <Text style={styles.button}> Tetris Battle Royale </Text>
-              </TouchableOpacity>
-              <TouchableOpacity style={styles.buttonContainer}>
-                <Text style={styles.button}> Fortnite </Text>
-              </TouchableOpacity>
-              <Button large title = "Leagur of Legends" style= {styles.buttonContainer}
+              <Button  title = "DOTA 2"  style= {styles.buttonContainer}
+                icon={ 
+                    <Image source = {require('../../assets/images/GamesIcon/DOTA2.png')}
+                    style = {styles.IconStyle} />}
+                    onPress={() => this.props.navigation.navigate('GameScore',
+                    {prevScreenTitle: 'DOTA 2'})}
+                    />
+                <Button large title = "Fortnite         " style= {styles.buttonContainer}
                icon={
-                  <Image source = {require('../../assets/images/LOL.png')}
+                  <Image source = {require('../../assets/images/GamesIcon/fortnite.jpg')}
+                  onPress={() => this.props.navigation.navigate('GameScore',
+                    {prevScreenTitle: 'Fortnite'})}
+                  style = {styles.IconStyle} />}/>
+                   
+              <Button large title = "League of Legends" style= {styles.buttonContainer}
+               icon={
+                  <Image source = {require('../../assets/images/GamesIcon/LOL.png')}
+                  onPress={() => this.props.navigation.navigate('GameScore',
+                    {prevScreenTitle: 'League of Legends'})}
                   style = {styles.IconStyle} />}/>
             </View>
         </View>
@@ -134,10 +144,10 @@ const styles = StyleSheet.create({
     justifyContent: 'center',
     alignItems: 'center',
     //marginBottom:10,
-    width: 260,
-    height: 50,
+    width: 170,
+    height: 45,
     color: "white",
     //borderRadius:30,
-    backgroundColor: "#040505",
+    backgroundColor: "#00BFFF",
   },
 });
