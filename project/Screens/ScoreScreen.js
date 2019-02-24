@@ -5,6 +5,12 @@ import {Button} from 'react-native-elements'
 
 class ScoreScreen extends Component {
   static navigationOptions = {
+    headerStyle: {
+      backgroundColor: '#3F53B1',
+        },
+    headerTitleStyle: {
+      color: 'white',
+        },
     title: 'Score',
   };
     render(){
@@ -13,9 +19,9 @@ class ScoreScreen extends Component {
                 <Button
                 style = {styles.buttonStyle}
 
-                icon={ 
+                icon={
                     <Image source = {require('../assets/images/GamesIcon/fortnite.jpg')}
-                    style = {styles.IconStyle} />}  
+                    style = {styles.IconStyle} />}
 
                     title="Fortnite"
                     onPress={() => this.props.navigation.navigate('GameScore',
@@ -24,20 +30,20 @@ class ScoreScreen extends Component {
 
 
 
-                <Button  
-                title = "Leagur of Legends" 
-                style= {styles.buttonStyle} 
-                icon={ 
+                <Button
+                title = "League of Legends"
+                style= {styles.buttonStyle}
+                icon={
                     <Image source = {require('../assets/images/GamesIcon/LOL.png')}
                     style = {styles.IconStyle} />}
                     onPress={() => this.props.navigation.navigate('GameScore',
-                    {prevScreenTitle: 'Leagur of Legends'})}
+                    {prevScreenTitle: 'League of Legends'})}
                     />
 
 
 
                 <Button  title = "DOTA 2"  style= {styles.buttonStyle}
-                icon={ 
+                icon={
                     <Image source = {require('../assets/images/GamesIcon/DOTA2.png')}
                     style = {styles.IconStyle} />}
                     onPress={() => this.props.navigation.navigate('GameScore',
@@ -47,7 +53,7 @@ class ScoreScreen extends Component {
 
 
                 <Button  title = "CSGO"  style= {styles.buttonStyle}
-                icon={ 
+                icon={
                     <Image source = {require('../assets/images/GamesIcon/CSGO.png')}
                     style = {styles.IconStyle} />}
                     onPress={() => this.props.navigation.navigate('GameScore',
@@ -57,7 +63,7 @@ class ScoreScreen extends Component {
 
 
                 <Button  title = "World of Warcraft"  style= {styles.buttonStyle}
-                icon={ 
+                icon={
                     <Image source = {require('../assets/images/GamesIcon/WOW.png')}
                     style = {styles.IconStyle} />}
                     onPress={() => this.props.navigation.navigate('GameScore',
@@ -67,7 +73,7 @@ class ScoreScreen extends Component {
 
 
                 <Button  title = "PUBG"  style= {styles.buttonStyle}
-                icon={ 
+                icon={
                     <Image source = {require('../assets/images/GamesIcon/PUBG.png')}
                     style = {styles.IconStyle} />}
                     onPress={() => this.props.navigation.navigate('GameScore',
@@ -77,7 +83,7 @@ class ScoreScreen extends Component {
 
 
                 <Button  title = "Hearthstone"  style= {styles.buttonStyle}
-                icon={ 
+                icon={
                     <Image source = {require('../assets/images/GamesIcon/Hearthstone.png')}
                     style = {styles.IconStyle} />}
                     onPress={() => this.props.navigation.navigate('GameScore',
@@ -87,7 +93,7 @@ class ScoreScreen extends Component {
 
 
                 <Button  title = "Overwatch"  style= {styles.buttonStyle}
-                icon={ 
+                icon={
                     <Image source = {require('../assets/images/GamesIcon/Overwatch.png')}
                     style = {styles.IconStyle} />}
                     onPress={() => this.props.navigation.navigate('GameScore',
@@ -108,6 +114,7 @@ class ScoreScreen extends Component {
 const styles = {
     buttonStyle:{
        padding:10,
+       backgroundColor: '#243177',
     },
     buttonContainer: {
       marginTop:10,
@@ -125,12 +132,13 @@ const styles = {
         width: 40,
         height: 40,
         resizeMode: 'contain',
-        position: "absolute", left: 0
+        position: "absolute", left: 0,
+
 
     },
-        
-  
-           
+
+
+
 
 
 

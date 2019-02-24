@@ -40,6 +40,9 @@ const filterEvents = (date: Moment): ?Array<EventType> =>
   FAKE_EVENTS.filter(event => event.date.isSame(date, 'day'));
 
 export default class Scoreboard extends React.Component {
+    static navigationOptions = {
+      header: null
+    };
 
   state = {
     events: filterEvents(moment()),
