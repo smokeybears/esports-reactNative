@@ -58,18 +58,18 @@ export default class Profile extends Component {
   render() {
     return (
       <View style={styles.container}>
-          <Image style={styles.header} source={{uri: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSZOlct3fO3li1BTgUjTpw2Yks_DxN5CsZYWyv2CfaItpLBWtXj'}}/>
+          <Image style={styles.header} source={{uri: 'https://assets.bwbx.io/images/users/iqjWHBFdfxIU/isBqQ09k04Mc/v1/1000x-1.jpg'}}/>
           <Image style={styles.avatar} source={{uri: 'https://www.apu.edu/faculty/photos/dgrissom.jpg?mdate=1546974979'}}/>
           <View style={styles.body}>
             <View style={styles.bodyContent}>
               <Text style={styles.name}>Dan Grissom</Text>
-              <Text style={styles.info}>Professional Pong Player</Text>
+              <Text style={styles.info}>Favorite games:</Text>
 
               <TouchableOpacity style={styles.buttonContainer}>
-                <Text> Pong </Text>
+                <Text style={styles.button}> Tetris Battle Royale </Text>
               </TouchableOpacity>
               <TouchableOpacity style={styles.buttonContainer}>
-                <Text> Pong 2</Text>
+                <Text style={styles.button}> Fortnite </Text>
               </TouchableOpacity>
             </View>
         </View>
@@ -126,15 +126,21 @@ const styles = StyleSheet.create({
     color: "black",
     marginTop:10
   },
+  button:{
+    fontSize:16,
+    color: "white"
+  },
   buttonContainer: {
-    marginTop:10,
-    height:45,
-    flexDirection: 'row',
+    marginTop:15,
+    //height:45,
+    //flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
-    marginBottom:10,
-    width:250,
-    borderRadius:30,
-    backgroundColor: "#00BFFF",
+    //marginBottom:10,
+    width: 260,
+    height: 50,
+    color: "white",
+    //borderRadius:30,
+    backgroundColor: "#040505",
   },
 });
