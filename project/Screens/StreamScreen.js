@@ -1,21 +1,46 @@
-import React, { Component } from 'react';
-import { Text } from "react-native";
+import React from 'react';
+import { StyleSheet, Text, View, Dimensions } from 'react-native';
+import { Video } from 'expo';
+import {WebView} from 'react-native';
 
-class StreamScreen extends Component {
+
+export default class StreamScreen extends React.Component {
   static navigationOptions = {
-    headerStyle: {
-      backgroundColor: '#3F53B1',
-        },
-    headerTitleStyle: {
-      color: 'white',
-        },
-    title: 'Streams',
+    title: 'Stream',
   };
-    render(){
-        return(
-            <Text>Stream</Text>
-        );
-    }
+  state = {
+    mute: false,
+    shouldPlay: true,
+}
+  render() {
+    const { width } = Dimensions.get('window');
+    return (
+      <WebView
+    playing
+    style={{flex:1}}
+    javaScriptEnabled={true}
+    source={{uri: 'https://www.twitch.tv/ninja?tt_content=text_link&tt_medium=live_embed'}}
+/>
+     );
+  } 
 }
 
-export default StreamScreen;
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: '#fff',
+    alignItems: 'center',
+    justifyContent: 'center',
+  },
+  controlBar: {
+    position: 'absolute',
+    bottom: 0,
+    left: 0,
+    right: 0,
+    height: 45,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    backgroundColor: "rgba(0, 0, 0, 0.5)",
+  }
+});
