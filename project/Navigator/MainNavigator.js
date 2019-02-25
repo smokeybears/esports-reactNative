@@ -9,6 +9,10 @@ import Profile from '../Screens/Profile/Profile';
 import SettingsScreen from '../Screens/SettingsScreen';
 
 import CreateForum from '../Screens/forum/createForum'
+import GameScoreScreen from '../Screens/GameScoreScreen';
+import GameScore from '../Screens/Scores/Scoreboard';
+
+
 
 const HomeStack = createStackNavigator({
   Home: StreamScreen,
@@ -16,6 +20,12 @@ const HomeStack = createStackNavigator({
 });
 
 HomeStack.navigationOptions = {
+  activeTintColor: 'white',
+  tabBarOptions: {
+    style: {
+      backgroundColor: '#3F53B1'
+    }
+  },
   tabBarLabel: 'Stream',
   tabBarIcon: ({ focused }) => (
     <TabBarIcon
@@ -28,9 +38,17 @@ HomeStack.navigationOptions = {
 
 const AuthStack = createStackNavigator({
   Auth: ScoreScreen,
+  GameScore: GameScore
+
 });
 
 AuthStack.navigationOptions = {
+  tabBarOptions: {
+    activeTintColor: 'white',
+    style: {
+      backgroundColor: '#3F53B1'
+    }
+  },
   tabBarLabel: 'Score',
   tabBarIcon: ({ focused }) => (
     <TabBarIcon
@@ -44,7 +62,17 @@ const ForumsStack = createStackNavigator({
   Forum: CreateForum,
 });
 
+<<<<<<< HEAD
 ForumsStack.navigationOptions = {
+=======
+LinksStack.navigationOptions = {
+  tabBarOptions: {
+    activeTintColor: 'white',
+    style: {
+      backgroundColor: '#3F53B1'
+    }
+  },
+>>>>>>> de7a8226dbc66a62f5c6c9d264ff98e56ba90c3e
   tabBarLabel: 'Discussion',
   tabBarIcon: ({ focused }) => (
     <TabBarIcon
@@ -60,6 +88,12 @@ const ProfileStack = createStackNavigator({
 });
 
 ProfileStack.navigationOptions = {
+  activeTintColor: 'white',
+  tabBarOptions: {
+    style: {
+      backgroundColor: '#3F53B1'
+    }
+  },
   tabBarLabel: 'Profile',
   tabBarIcon: ({ focused }) => (
     <TabBarIcon
@@ -69,9 +103,12 @@ ProfileStack.navigationOptions = {
   ),
 };
 
+
 export default createBottomTabNavigator({
   HomeStack,
   AuthStack,
   ForumsStack,
   ProfileStack,
-});
+
+},
+);

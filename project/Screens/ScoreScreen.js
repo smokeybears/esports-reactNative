@@ -5,59 +5,107 @@ import {Button} from 'react-native-elements'
 
 class ScoreScreen extends Component {
   static navigationOptions = {
+    headerStyle: {
+      backgroundColor: '#3F53B1',
+        },
+    headerTitleStyle: {
+      color: 'white',
+        },
     title: 'Score',
   };
     render(){
         return(
-            <ScrollView> 
-                <Button 
+            <ScrollView>
+                <Button
                 style = {styles.buttonStyle}
-                icon={ 
-                    <Image source = {require('../assets/images/fortnite.jpg')}
-                    style = {styles.IconStyle} />}  
+
+                icon={
+                    <Image source = {require('../assets/images/GamesIcon/fortnite.jpg')}
+                    style = {styles.IconStyle} />}
+
                     title="Fortnite"
+                    onPress={() => this.props.navigation.navigate('GameScore',
+                    {prevScreenTitle: 'Fortnite'})}
                 />
 
 
-                <Button large title = "Leagur of Legends" style= {styles.buttonStyle} 
-                 icon={ 
-                    <Image source = {require('../assets/images/LOL.png')}
-                    style = {styles.IconStyle} />}/>
-                <Button large title = "DOTA 2"  style= {styles.buttonStyle}
-                icon={ 
-                    <Image source = {require('../assets/images/DOTA2.png')}
-                    style = {styles.IconStyle} />}/>
 
-                <Button large title = "CSGO"  style= {styles.buttonStyle}
-                icon={ 
-                    <Image source = {require('../assets/images/CSGO.png')}
-                    style = {styles.IconStyle} />}/>
+                <Button
+                title = "League of Legends"
+                style= {styles.buttonStyle}
+                icon={
+                    <Image source = {require('../assets/images/GamesIcon/LOL.png')}
+                    style = {styles.IconStyle} />}
+                    onPress={() => this.props.navigation.navigate('GameScore',
+                    {prevScreenTitle: 'League of Legends'})}
+                    />
 
-                <Button large title = "World of Warcraft"  style= {styles.buttonStyle}
-                icon={ 
-                    <Image source = {require('../assets/images/WOW.png')}
-                    style = {styles.IconStyle} />}/>
 
-                <Button large title = "PUBG"  style= {styles.buttonStyle}
-                icon={ 
-                    <Image source = {require('../assets/images/PUBG.png')}
-                    style = {styles.IconStyle} />}/>
 
-                <Button large title = "Hearthstone"  style= {styles.buttonStyle}
-                icon={ 
-                    <Image source = {require('../assets/images/Hearthstone.png')}
-                    style = {styles.IconStyle} />}/>
+                <Button  title = "DOTA 2"  style= {styles.buttonStyle}
+                icon={
+                    <Image source = {require('../assets/images/GamesIcon/DOTA2.png')}
+                    style = {styles.IconStyle} />}
+                    onPress={() => this.props.navigation.navigate('GameScore',
+                    {prevScreenTitle: 'DOTA 2'})}
+                    />
 
-                <Button large title = "Overwatch"  style= {styles.buttonStyle}
-                icon={ 
-                    <Image source = {require('../assets/images/Overwatch.png')}
-                    style = {styles.IconStyle} />}/>
+
+
+                <Button  title = "CSGO"  style= {styles.buttonStyle}
+                icon={
+                    <Image source = {require('../assets/images/GamesIcon/CSGO.png')}
+                    style = {styles.IconStyle} />}
+                    onPress={() => this.props.navigation.navigate('GameScore',
+                    {prevScreenTitle: 'CSGO'})}
+                    />
+
+
+
+                <Button  title = "World of Warcraft"  style= {styles.buttonStyle}
+                icon={
+                    <Image source = {require('../assets/images/GamesIcon/WOW.png')}
+                    style = {styles.IconStyle} />}
+                    onPress={() => this.props.navigation.navigate('GameScore',
+                    {prevScreenTitle: 'World of Warcraft'})}
+                    />
+
+
+
+                <Button  title = "PUBG"  style= {styles.buttonStyle}
+                icon={
+                    <Image source = {require('../assets/images/GamesIcon/PUBG.png')}
+                    style = {styles.IconStyle} />}
+                    onPress={() => this.props.navigation.navigate('GameScore',
+                    {prevScreenTitle: 'PUBG'})}
+                    />
+
+
+
+                <Button  title = "Hearthstone"  style= {styles.buttonStyle}
+                icon={
+                    <Image source = {require('../assets/images/GamesIcon/Hearthstone.png')}
+                    style = {styles.IconStyle} />}
+                    onPress={() => this.props.navigation.navigate('GameScore',
+                    {prevScreenTitle: 'Hearthstone'})}
+                    />
+
+
+
+                <Button  title = "Overwatch"  style= {styles.buttonStyle}
+                icon={
+                    <Image source = {require('../assets/images/GamesIcon/Overwatch.png')}
+                    style = {styles.IconStyle} />}
+                    onPress={() => this.props.navigation.navigate('GameScore',
+                    {prevScreenTitle: 'Overwatch'})}
+                    />
+
                 </ScrollView>
-           
-            
-           
-            
-           
+
+
+
+
+
         );
     }
 }
@@ -65,24 +113,39 @@ class ScoreScreen extends Component {
 
 const styles = {
     buttonStyle:{
-       padding:10,     
+       padding:10,
+       backgroundColor: '#243177',
     },
-
+    buttonContainer: {
+      marginTop:10,
+      height:45,
+      flexDirection: 'row',
+      justifyContent: 'center',
+      alignItems: 'center',
+      marginBottom:10,
+      width:250,
+      borderRadius:30,
+      backgroundColor: "#00BFFF",
+    },
     IconStyle:{
-
         flex: 1,
         width: 40,
         height: 40,
         resizeMode: 'contain',
-        position: "absolute", left: 0
-        
-            },
-        
-  
-           
+        position: "absolute", left: 0,
 
-        
-    
+
+    },
+
+
+
+
+
+
+
+
+
+
 };
 
 export default ScoreScreen;

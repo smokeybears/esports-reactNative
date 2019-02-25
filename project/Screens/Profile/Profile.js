@@ -5,20 +5,28 @@ import {
   Text,
   View,
   Image,
-  TouchableOpacity
-} from 'react-native';
+  TouchableOpacity,
+  } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { Button } from 'react-native-elements';
 
 export default class Profile extends Component {
+
   static navigationOptions = ({navigation}) => {
     const {params = {}} = navigation.state;
     return {
+      headerStyle: {
+      backgroundColor: '#3F53B1',
+    },
+    headerTitleStyle: {
+      color: 'white',
+    },
+
       headerTitle: 'Profile',
       headerRight: (
           <Button
             onPress={() => alert('Alerts')}
-            icon={ <Icon name="bell-o" size={25} color="black" /> }
+            icon={ <Icon name="bell-o" size={25} color="white" /> }
             backgroundColor='white'
             type='clear'
           />
@@ -26,7 +34,7 @@ export default class Profile extends Component {
       headerLeft: (
         <Button
           onPress={() => params.leftNav()}
-          icon={ <Icon name="bars" size={25} color="black" /> }
+          icon={ <Icon name="bars" size={25} color="white" /> }
           backgroundColor='white'
           type='clear'
         />
@@ -36,7 +44,7 @@ export default class Profile extends Component {
 
   constructor(props) {
     super(props);
-    // Set the param in navigation.state.params for the 
+    // Set the param in navigation.state.params for the
     // static headerLeft
     this.props.navigation.setParams({leftNav: this.goToSettings});
   }
@@ -50,19 +58,34 @@ export default class Profile extends Component {
   render() {
     return (
       <View style={styles.container}>
-          <Image style={styles.header} source={{uri: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSZOlct3fO3li1BTgUjTpw2Yks_DxN5CsZYWyv2CfaItpLBWtXj'}}/>
+          <Image style={styles.header} source={{uri: 'https://assets.bwbx.io/images/users/iqjWHBFdfxIU/isBqQ09k04Mc/v1/1000x-1.jpg'}}/>
           <Image style={styles.avatar} source={{uri: 'https://www.apu.edu/faculty/photos/dgrissom.jpg?mdate=1546974979'}}/>
           <View style={styles.body}>
             <View style={styles.bodyContent}>
               <Text style={styles.name}>Dan Grissom</Text>
-              <Text style={styles.info}>Professional Pong Player</Text>
 
-              <TouchableOpacity style={styles.buttonContainer}>
-                <Text> Pong </Text>
-              </TouchableOpacity>
-              <TouchableOpacity style={styles.buttonContainer}>
-                <Text> Pong 2</Text>
-              </TouchableOpacity>
+
+              <Text style={styles.info}>Favorite games:</Text>
+              <Button  title = "DOTA 2"  style= {styles.buttonContainer}
+                icon={ 
+                    <Image source = {require('../../assets/images/GamesIcon/DOTA2.png')}
+                    style = {styles.IconStyle} />}
+                    onPress={() => this.props.navigation.navigate('GameScore',
+                    {prevScreenTitle: 'DOTA 2'})}
+                    />
+                <Button large title = "Fortnite         " style= {styles.buttonContainer}
+               icon={
+                  <Image source = {require('../../assets/images/GamesIcon/fortnite.jpg')}
+                  onPress={() => this.props.navigation.navigate('GameScore',
+                    {prevScreenTitle: 'Fortnite'})}
+                  style = {styles.IconStyle} />}/>
+                   
+              <Button large title = "League of Legends" style= {styles.buttonContainer}
+               icon={
+                  <Image source = {require('../../assets/images/GamesIcon/LOL.png')}
+                  onPress={() => this.props.navigation.navigate('GameScore',
+                    {prevScreenTitle: 'League of Legends'})}
+                    style = {styles.IconStyle} />}/>
             </View>
         </View>
       </View>
@@ -75,6 +98,15 @@ const styles = StyleSheet.create({
     backgroundColor: "#00BFFF",
     height:200,
   },
+  IconStyle:{
+      flex: 1,
+      width: 40,
+      height: 40,
+      resizeMode: 'contain',
+      position: "absolute",
+      left: 0
+
+          },
   avatar: {
     width: 130,
     height: 130,
@@ -109,15 +141,21 @@ const styles = StyleSheet.create({
     color: "black",
     marginTop:10
   },
+  button:{
+    fontSize:16,
+    color: "white"
+  },
   buttonContainer: {
-    marginTop:10,
-    height:45,
-    flexDirection: 'row',
+    marginTop:15,
+    //height:45,
+    //flexDirection: 'row',
     justifyContent: 'center',
     alignItems: 'center',
-    marginBottom:10,
-    width:250,
-    borderRadius:30,
+    //marginBottom:10,
+    width: 170,
+    height: 45,
+    color: "white",
+    //borderRadius:30,
     backgroundColor: "#00BFFF",
   },
 });
