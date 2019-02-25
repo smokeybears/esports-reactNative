@@ -16,7 +16,11 @@ export default class StreamScreen extends React.Component {
     style={{flex:1}}
     javaScriptEnabled={true}
     domStorageEnabled={true}
-    source={{uri: 'https://player.twitch.tv/?channel=ninja&autoplay=true'}}
+    scrollEnabled={true}
+    allowsInlineMediaPlayback={true}
+    startInLoadingState={true}
+    mediaPlaybackRequiresUserAction={false}
+    source={{uri: 'https://www.twitch.tv/ninja?tt_content=text_link&tt_medium=live_embed'}}
     //NO CHAT = https://player.twitch.tv/?channel=ninja&autoplay=true
     //YES CHAT=https://www.twitch.tv/ninja?tt_content=text_link&tt_medium=live_embed
 />
