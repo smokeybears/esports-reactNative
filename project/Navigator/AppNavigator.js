@@ -11,6 +11,16 @@ import AboutScreen from '../Screens/AboutScreen';
 import HelpScreen from '../Screens/HelpScreen';
 import GameScoreScreen from '../Screens/GameScoreScreen';
 
+import DiscussionScreen from '../Screens/DiscussionScreen';
+import LeagueDiscussionScreen from '../Screens/LeagueDiscussionScreen';
+import FortniteDiscussionScreen from '../Screens/FortniteDiscussionScreen';
+import Dota2DiscussionScreen from '../Screens/Dota2DiscussionScreen';
+import CsgoDiscussionScreen from '../Screens/CsgoDiscussionScreen';
+import WorldOfWarcraftDiscussionScreen from '../Screens/WorldOfWarcraftDiscussionScreen';
+import PubgDiscussionScreen from '../Screens/PubgDiscussionScreen';
+import HearthstoneDiscussionScreen from '../Screens/HearthstoneDiscussionScreen';
+import OverwatchDiscussionScreen from '../Screens/OverwatchDiscussionScreen';
+
 
 export default createAppContainer(createSwitchNavigator({
   // You could add another route here for authentication.
@@ -30,5 +40,17 @@ export default createAppContainer(createSwitchNavigator({
   About: AboutScreen,
   Help: HelpScreen,
   GameScore: GameScoreScreen,
+
+  Discussion: DiscussionScreen,
+  FortniteDiscussion: FortniteDiscussionScreen,
+  LeagueDiscussion: LeagueDiscussionScreen,
+  Dota2Discussion: Dota2DiscussionScreen,
+  CsgoDiscussion: CsgoDiscussionScreen,
+  WorldOfWarcraftDiscussion: WorldOfWarcraftDiscussionScreen,
+  PubgDiscussion: PubgDiscussionScreen,
+  HearthstoneDiscussion: HearthstoneDiscussionScreen, 
+  OverwatchDiscussion: OverwatchDiscussionScreen,
+
+  
 
 }));
