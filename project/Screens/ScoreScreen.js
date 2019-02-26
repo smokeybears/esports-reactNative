@@ -1,5 +1,5 @@
 import React , { Component }from 'react';
-import { Text,View, Image,ScrollView} from "react-native";
+import { Text,View, Image,ScrollView,Dimensions} from "react-native";
 import { CardSection } from '../components/common';
 import {Button} from 'react-native-elements'
 
@@ -115,6 +115,12 @@ const styles = {
     buttonStyle:{
        padding:10,
        backgroundColor: '#243177',
+       height:60,
+       width:Dimensions.get('window').width,
+       borderRadius:30,
+      marginBottom:5,
+      marginTop:5,
+       
     },
     buttonContainer: {
       marginTop:10,
