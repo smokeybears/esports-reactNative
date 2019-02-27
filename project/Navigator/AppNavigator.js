@@ -34,7 +34,6 @@ export default createAppContainer(createSwitchNavigator({
   Profile: profileScreen,
   SignIn: SignInScreen,
   SignUp: SignUpScreen,
-
   Notifications: NotificationsScreen,
   Score: ScoreScreen,
   About: AboutScreen,
@@ -49,8 +48,5 @@ export default createAppContainer(createSwitchNavigator({
   WorldOfWarcraftDiscussion: WorldOfWarcraftDiscussionScreen,
   PubgDiscussion: PubgDiscussionScreen,
   HearthstoneDiscussion: HearthstoneDiscussionScreen, 
-  OverwatchDiscussion: OverwatchDiscussionScreen,
-
-  
-
+  OverwatchDiscussion: OverwatchDiscussionScreen
 }));

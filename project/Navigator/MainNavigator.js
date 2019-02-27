@@ -1,19 +1,16 @@
 import React from 'react';
 import { Platform } from 'react-native';
 import { createStackNavigator, createBottomTabNavigator } from 'react-navigation';
-
 import TabBarIcon from '../components/TabBarIcon';
 import StreamScreen from '../Screens/StreamScreen';
-import ScoreScreen from '../Screens/ScoreScreen';
 import DiscussionScreen from '../Screens/DiscussionScreen';
 import Profile from '../Screens/Profile/Profile';
 import SettingsScreen from '../Screens/SettingsScreen';
+
+import CreateForum from '../Screens/forum/createForum'
 import GameScoreScreen from '../Screens/GameScoreScreen';
-import GameScore from '../Screens/Scores/Scoreboard';
 
-
-
-
+import CalendarScreen from '../Screens/calendar'
 
 const HomeStack = createStackNavigator({
   Home: StreamScreen,
@@ -37,13 +34,11 @@ HomeStack.navigationOptions = {
 };
 
 
-const AuthStack = createStackNavigator({
-  Auth: ScoreScreen,
-  GameScore: GameScore
-
+const CalendarStack = createStackNavigator({
+  Calendar: CalendarScreen,
 });
 
-AuthStack.navigationOptions = {
+CalendarStack.navigationOptions = {
   tabBarOptions: {
     activeTintColor: 'white',
     style: {
@@ -59,11 +54,11 @@ AuthStack.navigationOptions = {
   ),
 };
 
-const LinksStack = createStackNavigator({
-  Links: DiscussionScreen,
+const ForumsStack = createStackNavigator({
+  Forum: CreateForum,
 });
 
-LinksStack.navigationOptions = {
+ForumsStack.navigationOptions = {
   tabBarOptions: {
     activeTintColor: 'white',
     style: {
@@ -103,9 +98,7 @@ ProfileStack.navigationOptions = {
 
 export default createBottomTabNavigator({
   HomeStack,
-  AuthStack,
-  LinksStack,
+  CalendarStack,
+  ForumsStack,
   ProfileStack,
-
-},
-);
+});

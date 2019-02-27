@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import M from 'moment'
 import {
   Image,
   StyleSheet,
@@ -37,7 +38,7 @@ export default class Event extends Component {
           />
         </View>
         <View style={styles.textContainer}>
-          <Text style={styles.text}>{date.calendar()}</Text>
+          <Text style={styles.text}>{M(date).calendar()}</Text>
           <Text style={[styles.text, styles.title]}>{title}</Text>
           <Text style={styles.text}>{description}</Text>
         <View style={styles.scoreContainer}>

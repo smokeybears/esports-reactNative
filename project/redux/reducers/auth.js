@@ -57,9 +57,12 @@ const createUser = (state = {}, action) => {
 	switch(action.type){
 		case CREATE_USER: 
 			return {
+				...state,
 				user: action.user,
 				session: action.session
 			}
+		default:
+			return state
 	}
 };
 
