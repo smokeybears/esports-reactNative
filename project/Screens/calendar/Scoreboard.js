@@ -30,6 +30,7 @@ export default class Scoreboard extends React.Component {
     return (
       <View style={styles.container}>
         <StatusBar hidden={true} />
+        
         <DayCalendar showDaysAfterCurrent={30} onSelectDate={(day) => {this.props.onDaySelect(M(day).date())}} />
        <Events events={this.props.events} />
       </View>

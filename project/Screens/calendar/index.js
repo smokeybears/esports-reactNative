@@ -4,7 +4,7 @@ import { ActivityIndicator } from 'react-native'
 import MonthView from './MonthView'
 import calendarActions from '../../redux/actions/calendar'
 import Scoreboard from './Scoreboard'
-
+import { View } from 'react-native'
 class Calendar extends Component {
 	constructor(props){
 		super(props)
@@ -54,6 +54,12 @@ class Calendar extends Component {
 			})
 		})
 	}
+	changeGame = (game) => {
+		console.log(game)
+		return this.setState({
+			game: game
+		}, () => {this.getMonthTournaments()})
+	}
 
 	render(){
 		if (this.state.magnification == 'Month'){
@@ -64,6 +70,7 @@ class Calendar extends Component {
 						matches={this.state.matches}
 						navigation={this.props.navigation}
 						onDaySelect={this.onDaySelect}
+						changeGame={this.changeGame}
 					/>
 				)
 			} 
@@ -73,6 +80,7 @@ class Calendar extends Component {
 				<Scoreboard 
 					events={this.state.dayMatches} 
 					onDaySelect={this.onDaySelect}
+//	to go back at some point				goToMonthView={() => {this.setState({magnification: 'Day'})}}
 					/>
 			) 
 		}

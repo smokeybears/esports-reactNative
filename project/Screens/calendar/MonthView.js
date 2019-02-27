@@ -5,12 +5,14 @@ import _ from 'lodash'
 import actions from '../../redux/actions/calendar'
 import { NavigationActions } from 'react-navigation'
 import { connect } from 'react-redux'
+import {
+  Button 
+} from '../../components/common'
 
 class MonthView extends Component {
 	constructor(props){
 		super(props)
 		this.state = {
-			matches: props.matches,
 			month: props.month
 		}
 	}
@@ -27,7 +29,7 @@ class MonthView extends Component {
 				dayComponents.push(
 					inMonthDay(
 						d.date(),
-						this.state.matches[d.date()] || [],
+						this.props.matches[d.date()] || [],
 						this.props.onDaySelect
 					)
 				) 
@@ -38,36 +40,21 @@ class MonthView extends Component {
 		return dayComponents
 	}
 
-	// navButtons(){
-	// 	const prevMonth = M(this.props.cMonth[0].date).subtract(1, 'M')
-	// 	const nextMonth = M(this.props.cMonth[0].date).add(1, 'M')
-	// 	return (
-	// 		<View style={styles.navContainer}>
-	// 			<TouchableOpacity
-	// 				onPress={() => this.props.updateCurrentMonth(prevMonth.month())}
-	// 				style={styles.navButton}
-	// 			>
-	// 				<Text style={styles.changeMonthText}> {`<`} </Text>
-	// 			</TouchableOpacity>
-	// 			<View style={styles.monthName}>
-	// 				<Text style={{fontSize: 30, fontWeight: 'bold'}}>
-	// 					{M(this.props.cMonth[0].date).format('MMMM')}
-	// 				</Text>
-	// 			</View>
-	// 			<TouchableOpacity
-	// 				onPress={() => this.props.updateCurrentMonth(nextMonth.month())}
-	// 				style={styles.navButton}
-	// 			>
-	// 				<Text style={styles.changeMonthText}> {`>`} </Text>
-	// 			</TouchableOpacity>
-	// 		</View>
-	// 	)
-	// }
 
 	render(){
 		return (
 			<View style={styles.screenContainer}>
-				{/*this.navButtons() */}
+				<View style={styles.selectGameStyles}>
+        	<Button onPress={() => this.props.changeGame('csgo')}>
+        		CSGO
+        	</Button>
+          <Button onPress={() => this.props.changeGame('dota2')}>
+          	DOTA2
+          </Button>
+          <Button onPress={() => this.props.changeGame('lol')}>
+          	LOL
+          </Button>
+        </View>
 				<View style={styles.monthContainer}>
 					{_.chunk(this.getCalendarDays(), 7).map((week, idx) => {
 						return (
@@ -112,9 +99,9 @@ const inMonthDay = (day, dayMatches, onPress) => {
 		 		<View 
 		 			style={{
 		 				...styles.workPrevItem, 
-		 				backgroundColor: 'rgba(250, 128, 114, 0.7)'
+		 				backgroundColor: 'white' // 'rgba(250, 128, 114, 0.7)'
 		 			}}>
-		 			<Text>0</Text>
+		 			<Text></Text>
 		 		</View>
 		 	</View>
 			<Text style={styles.monthDay}>{day}</Text>
@@ -123,7 +110,17 @@ const inMonthDay = (day, dayMatches, onPress) => {
 }
 
 
+
+
 const styles = {
+	selectGameStyles: {
+		maxHeight: '4%',
+		flex: 1,
+		flexDirection: 'row',
+		justifyContent: 'center',
+		alignItems: 'center',
+		flexWrap: 'nowrap'
+	},
 	dayContainer: {
 		margin: '2%',
 		flex: 1,
@@ -192,6 +189,34 @@ const styles = {
 		margin: 'auto'
 	}
 }
+
+
+// Later
+	// navButtons(){
+	// 	const prevMonth = M(this.props.cMonth[0].date).subtract(1, 'M')
+	// 	const nextMonth = M(this.props.cMonth[0].date).add(1, 'M')
+	// 	return (
+	// 		<View style={styles.navContainer}>
+	// 			<TouchableOpacity
+	// 				onPress={() => this.props.updateCurrentMonth(prevMonth.month())}
+	// 				style={styles.navButton}
+	// 			>
+	// 				<Text style={styles.changeMonthText}> {`<`} </Text>
+	// 			</TouchableOpacity>
+	// 			<View style={styles.monthName}>
+	// 				<Text style={{fontSize: 30, fontWeight: 'bold'}}>
+	// 					{M(this.props.cMonth[0].date).format('MMMM')}
+	// 				</Text>
+	// 			</View>
+	// 			<TouchableOpacity
+	// 				onPress={() => this.props.updateCurrentMonth(nextMonth.month())}
+	// 				style={styles.navButton}
+	// 			>
+	// 				<Text style={styles.changeMonthText}> {`>`} </Text>
+	// 			</TouchableOpacity>
+	// 		</View>
+	// 	)
+	// }
 
 export default MonthView
 
