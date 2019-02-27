@@ -42,11 +42,10 @@ type State = {
 const { width: screenWidth } = Dimensions.get('window');
 
 const formatMonth = (date: Moment): string => date.format('MMMM');
-
 const formatYear = (date: Moment): string => date.format('YYYY');
 
 
-export default class Calendar extends PureComponent {
+export default class DayView extends PureComponent {
 
   props: Props;
 

@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import {View, Text} from 'react-native'
-import {Input, Card, CardSection} from '../../components/common'
-
+import {Input, Card, CardSection, Button} from '../../components/common'
+import { connect } from 'react-redux'
 class ForumCreate extends Component {
 	constructor(props){
 		super(props)
@@ -13,9 +13,9 @@ class ForumCreate extends Component {
 		}
 	}
 
-	onChangeText = (e) => {
-		console.log('were doing it!!')
-		console.log(e)
+	onChangeText = (e, inputLabel) => {
+		this.setState({[inputLabel]: e})
+		console.log(this.state)
 	}
 
 	render(){
@@ -25,31 +25,40 @@ class ForumCreate extends Component {
 					<CardSection>
 						<Input
 							placeholder="Cats in Dota"
-							label="Name"
+							label="title"
 							value={this.state.title}
-							onChangeText={this.onChangeText}
+							onChangeText={(e) => {this.onChangeText(e, "title")}}
 						/>
 					</CardSection>
 					<CardSection>
 						<Input
 							placeholder="What is this form about"
-							label="Description"
-							value={this.state.title}
-							onChangeText={this.onChangeText}
+							label="description"
+							value={this.state.description}
+							onChangeText={(e) => {this.onChangeText(e, "description")}}
 						/>
 					</CardSection>
 					<CardSection>
 						<Input
 							placeholder="Fortnite"
-							label="Game"
-							value={this.state.title}
-							onChangeText={this.onChangeText}
+							label="game"
+							value={this.state.game}
+							onChangeText={(e) => {this.onChangeText(e, 'game')}}
 						/>
+					</CardSection>
+					<CardSection>
+						<Button onPress={() => {console.log('life is here')}}>
+							Create Forum
+						</Button>
 					</CardSection>
 				</Card>
 			</View>
 			)
 	}
+}
+
+const mapStateToProps = (state) => {
+	return {};
 }
 
 const containerStyle = {
@@ -59,4 +68,4 @@ const containerStyle = {
 	margin: '5%'
 }
 
-export default ForumCreate;
+export default connect(mapStateToProps)(ForumCreate);
