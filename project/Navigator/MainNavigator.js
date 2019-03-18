@@ -2,14 +2,12 @@ import React from 'react';
 import { Platform } from 'react-native';
 import { createStackNavigator, createBottomTabNavigator } from 'react-navigation';
 import TabBarIcon from '../components/TabBarIcon';
-import StreamScreen from '../Screens/StreamScreen';
+import StreamScreen from '../Screens/Stream2Screen';
 import DiscussionScreen from '../Screens/DiscussionScreen';
 import Profile from '../Screens/Profile/Profile';
 import SettingsScreen from '../Screens/SettingsScreen';
-
 import CreateForum from '../Screens/forum/createForum'
 import GameScoreScreen from '../Screens/GameScoreScreen';
-
 import CalendarScreen from '../Screens/calendar'
 
 const HomeStack = createStackNavigator({
@@ -18,6 +16,7 @@ const HomeStack = createStackNavigator({
 });
 
 HomeStack.navigationOptions = {
+  header: null,
   activeTintColor: 'white',
   tabBarOptions: {
     style: {
@@ -39,6 +38,7 @@ const CalendarStack = createStackNavigator({
 });
 
 CalendarStack.navigationOptions = {
+  header: null,
   tabBarOptions: {
     activeTintColor: 'white',
     style: {
