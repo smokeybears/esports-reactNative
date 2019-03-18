@@ -53,6 +53,7 @@ import { Button } from 'react-native';
                //switchOnValueChange={this.onValueChange}
                hasNavArrow={true}
                title='Payments'
+               onPress={() => this.props.navigation.navigate('CreditCard')}
              />
              <SettingsList.Item
                icon={<Image style={styles.imageStyle} source={require('../assets/images/ads.png')}/>}
