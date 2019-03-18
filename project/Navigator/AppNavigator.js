@@ -20,6 +20,7 @@ import WorldOfWarcraftDiscussionScreen from '../Screens/WorldOfWarcraftDiscussio
 import PubgDiscussionScreen from '../Screens/PubgDiscussionScreen';
 import HearthstoneDiscussionScreen from '../Screens/HearthstoneDiscussionScreen';
 import OverwatchDiscussionScreen from '../Screens/OverwatchDiscussionScreen';
+import homeScreen from '../Screens/Stream2Screen';
 
 
 export default createAppContainer(createSwitchNavigator({
@@ -30,6 +31,7 @@ export default createAppContainer(createSwitchNavigator({
   // if the Screen should have a back button (e.g. settings screen should always 
   // go back to profile) then don't include the screen here but it in the
   // appropriate stack navigator found in MainNavigator
+  Home:homeScreen,
   Main: MainTabNavigator,
   Profile: profileScreen,
   SignIn: SignInScreen,
