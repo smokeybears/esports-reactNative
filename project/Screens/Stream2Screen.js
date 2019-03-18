@@ -3,24 +3,23 @@ import { Button, Text, View, StyleSheet, TextInput, ScrollView, Image, Touchable
 import { createStackNavigator,createAppContainer } from 'react-navigation'; // Version can be specified in package.json
 
 class HomeScreen extends React.Component {
-  
+
   static navigationOptions = {
-      title: 'Twitch Live Streams',
-      headerTitleStyle :{textAlign: 'center', alignSelf:'center', color: '#6441a5'},
-      headerStyle:{
-          margin: 0,
-          fontSize: 18,
-          fontWeight: 'bold',
-          textAlign: 'center'
-      },
+      headerStyle: {
+      backgroundColor: '#3F53B1',
+        },
+    headerTitleStyle: {
+      color: 'white',
+        },
+    title: 'Twitch Live Streams',
   };
-  
+
   constructor(props) {
-    super(props); 
-    this.state = { text: 'overwatch', streams: [] };
+    super(props);
+    this.state = { text: '', streams: [] };
     this.Search()
   }
-  
+
   Search = () => {
     console.log(this.state.text);
     var query = encodeURI(this.state.text);
@@ -35,7 +34,7 @@ class HomeScreen extends React.Component {
         });
       });
   }
-  
+
   render() {
     return (
       <View style={styles.container}>
@@ -49,7 +48,7 @@ class HomeScreen extends React.Component {
                 value={this.state.text}
             />
           </View>
-          <View style={{flex:1.2, backgroundColor: '#6441a5', borderBottomRightRadius: '6px', borderTopRightRadius: '6px'}}>
+          <View style={{flex:1.2, backgroundColor: '#3F53B1', borderBottomRightRadius: '6px', borderTopRightRadius: '6px'}}>
             <Button color='white' title= 'Search' onPress={this.Search}>
             </Button>
           </View>
@@ -62,13 +61,13 @@ class HomeScreen extends React.Component {
           watch : `https://www.twitch.tv/${stream.channel.name}`})}>
         <View style={{flexDirection: 'row'}}>
           <View style={{flex:4, padding: 10, }}>
-            <Text style={{fontWeight: 'bold', fontSize: 18, color: '#6441a5'}}>
-              /{stream.channel.name}
+            <Text style={{ fontSize: 18, color: 'white'}}>
+              /{stream.channel.display_name}
             </Text>
-            <Text style={{fontWeight: 'italic', fontSize: 14, color: '#3f3f3f'}}>
+            <Text style={{fontWeight: 'bold', fontSize: 14, color: 'white'}}>
                Game: {stream.game}
             </Text>
-            <Text style={{fontWeight: 'italic', fontSize: 14, color: '#3f3f3f'}}>
+            <Text style={{fontWeight: 'bold', fontSize: 14, color: 'white'}}>
               Viewers: {stream.viewers}
             </Text>
           </View>
@@ -88,20 +87,19 @@ class HomeScreen extends React.Component {
 }
 
 class DetailsScreen extends React.Component {
-  
+
   static navigationOptions = {
-        title: 'Stream',
-        headerTitleStyle :{textAlign: 'center', alignSelf:'center', color: '#6441a5'},
-        headerStyle:{
-            margin: 0,
-            fontSize: 18,
-            fontWeight: 'bold',
-            textAlign: 'center'
+    headerStyle: {
+      backgroundColor: '#3F53B1',
         },
+    headerTitleStyle: {
+      color: 'white',
+        },
+    title: 'Streams',
     };
-  
+
   render() {
-    
+
     const { params } = this.props.navigation.state;
     const watch = params ? params.watch : null;
     console.log(watch);
@@ -117,12 +115,8 @@ class DetailsScreen extends React.Component {
 }
 
 const RootStack = createStackNavigator({
-  ScreenOne: { 
-    screen: HomeScreen,
-},
-ScreenTwo: { 
-    screen: DetailsScreen,
-},
+  ScreenOne: {  screen: HomeScreen, },
+ScreenTwo: {  screen: DetailsScreen, },
 });
 
 const Stream2Screen = createAppContainer(RootStack);
@@ -136,7 +130,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     paddingTop: 0,
-    backgroundColor: '#ecf0f1',
+    backgroundColor: '#243177',
   },
   element: {
     flex: 1,
@@ -150,4 +144,3 @@ const styles = StyleSheet.create({
   },
 
 });
-
