@@ -20,6 +20,7 @@ import WorldOfWarcraftDiscussionScreen from '../Screens/WorldOfWarcraftDiscussio
 import PubgDiscussionScreen from '../Screens/PubgDiscussionScreen';
 import HearthstoneDiscussionScreen from '../Screens/HearthstoneDiscussionScreen';
 import OverwatchDiscussionScreen from '../Screens/OverwatchDiscussionScreen';
+import CreditCardScreen from '../Screens/CreditCardScreen';
 
 
 export default createAppContainer(createSwitchNavigator({
@@ -39,6 +40,7 @@ export default createAppContainer(createSwitchNavigator({
   About: AboutScreen,
   Help: HelpScreen,
   GameScore: GameScoreScreen,
+  CreditCard: CreditCardScreen,
 
   Discussion: DiscussionScreen,
   FortniteDiscussion: FortniteDiscussionScreen,
