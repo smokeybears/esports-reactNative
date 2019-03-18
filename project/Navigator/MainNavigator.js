@@ -12,13 +12,15 @@ import CalendarScreen from '../Screens/calendar'
 
 const HomeStack = createStackNavigator({
   Home: StreamScreen,
-
-});
+},
+{
+  headerMode: 'none',
+}
+);
 
 HomeStack.navigationOptions = {
-  header: null,
-  activeTintColor: 'white',
   tabBarOptions: {
+    activeTintColor: 'white',
     style: {
       backgroundColor: '#3F53B1'
     }

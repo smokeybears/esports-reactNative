@@ -5,13 +5,13 @@ import { createStackNavigator,createAppContainer } from 'react-navigation'; // V
 class HomeScreen extends React.Component {
 
   static navigationOptions = {
-      headerStyle: {
-      backgroundColor: '#3F53B1',
-        },
-    headerTitleStyle: {
-      color: 'white',
-        },
-    title: 'Twitch Live Streams',
+    headerStyle: {
+    backgroundColor: '#3F53B1',
+      },
+  headerTitleStyle: {
+    color: 'white',
+      },
+  title: 'Twitch Live Streams',
   };
 
   constructor(props) {
@@ -117,7 +117,8 @@ class DetailsScreen extends React.Component {
 const RootStack = createStackNavigator({
   ScreenOne: {  screen: HomeScreen, },
 ScreenTwo: {  screen: DetailsScreen, },
-});
+},
+{headerMode: 'screen'});
 
 const Stream2Screen = createAppContainer(RootStack);
 
