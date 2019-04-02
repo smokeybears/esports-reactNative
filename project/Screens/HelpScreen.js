@@ -40,7 +40,7 @@ export default class HelpScreen extends Component {
   
   _submit = () => {
     alert(`User feedback has been saved and sent. ${this.state.userInput}`);
-    this.state.userInput = null
+    //this.state.userInput = null
   };
 }
 
