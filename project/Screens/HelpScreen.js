@@ -1,6 +1,8 @@
+
 import React, { Component } from 'react';
 import { Text, Button, StatusBar, TextInput, KeyboardAvoidingView, View, StyleSheet } from 'react-native';
 import { Constants } from 'expo';
+
 
 export default class HelpScreen extends Component {
   state = {
@@ -41,12 +43,13 @@ export default class HelpScreen extends Component {
   _submit = () => {
     alert(`User feedback has been saved and sent. ${this.state.userInput}`);
     //this.state.userInput = null
-  };
+
 }
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
+
     backgroundColor: '#ecf0f1',
   },
   header: {
