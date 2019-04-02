@@ -2,7 +2,7 @@ import React from 'react';
 import { 
   Platform, StatusBar, StyleSheet, 
   View, AsyncStorage } from 'react-native'
-import { AppLoading, Asset, Font, Icon } from 'expo'
+import { AppLoading, Asset, Font, Icon, Notifications } from 'expo'
 import { createStore, applyMiddleware, connect } from 'redux'
 import { Provider } from 'react-redux'
 import actions from './redux/actions'
@@ -10,9 +10,26 @@ import thunk from 'redux-thunk'
 
 import reducers from './redux/reducers'
 import AppNavigator from './Navigator/AppNavigator'
+import registerForNotifications from './services/push_notifications'
 
 
 export default class App extends React.Component {
+
+  componentDidMount() {
+    registerForNotifications();
+    Notifications.addListener((notification) => {
+      const { data: {text }} =notification;
+
+      if (origin === 'received' && text) {
+      Alert.alert(
+        'New Push Notification',
+        text,
+        [{ text: 'ok.'}]
+      );
+      }
+    });
+  }
+
   state = {
     isLoadingComplete: false,
   };
