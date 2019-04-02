@@ -31,20 +31,12 @@ import { Button } from 'react-native';
              <SettingsList.Item
                icon={<Image style={styles.imageStyle} source={require('../assets/images/notifications.png')}/>}
                hasSwitch={true}
-               //switchState={this.state.switchValue}
-               //switchOnValueChange={this.onValueChange}
+               switchState={this.state.switchValue}
+               switchOnValueChange={this.onValueChange}
                //hasNavArrow={true}
                title='Notifications'
                hasNavArrow={false}
-               //onPress={() => this.props.navigation.navigate('Score') }
-             />
-             <SettingsList.Item
-               icon={<Image style={styles.imageStyle} source={require('../assets/images/mode.png')}/>}
-               title='Night Mode'
-               hasSwitch={true}
-               switchState={this.state.switchValue}
-               switchOnValueChange={this.onValueChange}
-               hasNavArrow={false}
+               //onPress={() => sendNotification() }
              />
              <SettingsList.Item
                icon={<Image style={styles.imageStyle} source={require('../assets/images/payment.png')}/>}
@@ -78,7 +70,7 @@ import { Button } from 'react-native';
                //switchState={this.state.switchValue}
                //switchOnValueChange={this.onValueChange}
                hasNavArrow={true}
-               title='Help'
+               title='Report a bug'
                onPress={() => this.props.navigation.navigate('Help') }
              />
              <SettingsList.Item
@@ -96,7 +88,18 @@ import { Button } from 'react-native';
    }
 
    onValueChange(value){
-     this.setState({switchValue: value});
+    this.sendNotification.bind(this);
+    console.log("hey");
+    this.setState({switchValue: value});
+   }
+
+   sendNotification() {
+    PushNotification.localNotificationSchedule({
+      message: "My Notification Message", // (required)
+      playSound: true, // (optional) default: true
+    soundName: 'default', //
+      date: new Date(Date.now() + (5 * 1000)) // in 60 secs
+    });
    }
  }
 
