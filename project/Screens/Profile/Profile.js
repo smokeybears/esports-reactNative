@@ -6,9 +6,10 @@ import {
   View,
   Image,
   TouchableOpacity,
+  FlatList,
   } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
-import { Button } from 'react-native-elements';
+import { Button, List, ListItem } from 'react-native-elements';
 
 export default class Profile extends Component {
 
@@ -41,6 +42,53 @@ export default class Profile extends Component {
       )
     }
   }
+  state = {
+        seed: 1,
+        page: 1,
+        users: [],
+        isLoading: false,
+        isRefreshing: false,
+    };
+
+    handleRefresh = () => {
+        this.setState({
+            seed: this.state.seed + 1,
+            isRefreshing: true,
+        }, () => {
+            this.loadUsers();
+        });
+    };
+
+    handleLoadMore = () => {
+        this.setState({
+            page: this.state.page + 1
+        }, () => {
+            this.loadUsers();
+        });
+    };
+
+    componentDidMount() {
+
+        this.loadUsers();
+    };
+
+    loadUsers = () => {
+        const { users, seed, page } = this.state;
+        this.setState({ isLoading: true });
+
+        fetch(`https://randomuser.me/api/?seed=${seed}&page=${page}&results=20`)
+            .then(res => res.json())
+            .then(res => {
+                this.setState({
+                    users: page === 1 ? res.results : [...users, ...res.results],
+                    isRefreshing: false,
+                });
+            })
+            .catch(err => {
+                console.error(err);
+            });
+    };
+
 
   constructor(props) {
     super(props);
@@ -56,6 +104,7 @@ export default class Profile extends Component {
 
 
   render() {
+     const { users, isRefreshing } = this.state;
     return (
       <View style={styles.container}>
           <Image style={styles.header} source={{uri: 'https://assets.bwbx.io/images/users/iqjWHBFdfxIU/isBqQ09k04Mc/v1/1000x-1.jpg'}}/>
@@ -63,29 +112,26 @@ export default class Profile extends Component {
           <View style={styles.body}>
             <View style={styles.bodyContent}>
               <Text style={styles.name}>Dan Grissom</Text>
-
-
               <Text style={styles.info}>Favorite games:</Text>
-              <Button  title = "DOTA 2"  style= {styles.buttonContainer}
-                icon={ 
-                    <Image source = {require('../../assets/images/GamesIcon/DOTA2.png')}
-                    style = {styles.IconStyle} />}
-                    onPress={() => this.props.navigation.navigate('GameScore',
-                    {prevScreenTitle: 'DOTA 2'})}
-                    />
-                <Button large title = "Fortnite         " style= {styles.buttonContainer}
-               icon={
-                  <Image source = {require('../../assets/images/GamesIcon/fortnite.jpg')}
-                  onPress={() => this.props.navigation.navigate('GameScore',
-                    {prevScreenTitle: 'Fortnite'})}
-                  style = {styles.IconStyle} />}/>
-                   
-              <Button large title = "League of Legends" style= {styles.buttonContainer}
-               icon={
-                  <Image source = {require('../../assets/images/GamesIcon/LOL.png')}
-                  onPress={() => this.props.navigation.navigate('GameScore',
-                    {prevScreenTitle: 'League of Legends'})}
-                    style = {styles.IconStyle} />}/>
+              <List style={styles.scene}>
+                   <FlatList
+                       data={users}
+                       renderItem={({item}) => (
+                           <ListItem
+                               roundAvatar
+                               title={item.name.first}
+                               subtitle={item.email}
+                               avatar={{uri: item.picture.thumbnail}}
+                           />
+                       )}
+                       keyExtractor={i => i.email}
+                       refreshing={isRefreshing}
+                       onRefresh={this.handleRefresh}
+                       onEndReached={this.handleLoadMore}
+                       onEndThreshold={0}
+                   />
+           </List>
+
             </View>
         </View>
       </View>
@@ -159,3 +205,12 @@ const styles = StyleSheet.create({
     backgroundColor: "#00BFFF",
   },
 });
+/*
+<Text style={styles.info}>Favorite games:</Text>
+<Button  title = "DOTA 2"  style= {styles.buttonContainer}
+  icon={
+      <Image source = {require('../../assets/images/GamesIcon/DOTA2.png')}
+      style = {styles.IconStyle} />}
+      onPress={() => this.props.navigation.navigate('GameScore',
+      {prevScreenTitle: 'DOTA 2'})}
+      */
