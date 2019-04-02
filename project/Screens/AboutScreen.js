@@ -22,9 +22,16 @@ class ProfileScreen extends Component {
         }}
         >
 
-  
-        <Text>Application developed by Jason Yan (Team Leader and Genius).</Text>
-      
+      <View style={styles.container}>
+        <Text>Application developed by: </Text>
+        <Text>Nathan DaDalto</Text>
+        <Text>Elijah Gilbert</Text>
+        <Text>Peter Cusack</Text>
+        <Text>Sean Billideau</Text>
+        <Text>Blake Hill</Text>
+        <Text>Jason Yan</Text>
+      </View>
+
       </GestureRecognizer>
         );
     }
@@ -34,6 +41,12 @@ class ProfileScreen extends Component {
       }
       
 }
-
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
+});
 
 export default ProfileScreen;
