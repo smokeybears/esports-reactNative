@@ -4,7 +4,7 @@ import { Constants } from 'expo';
 
 export default class HelpScreen extends Component {
   state = {
-    email: '',
+    userInput: '',
   };
   
   render() {
@@ -19,13 +19,13 @@ export default class HelpScreen extends Component {
         <KeyboardAvoidingView behavior="padding" style={styles.form}>
           <TextInput
             style={styles.input}
-            value={this.state.email}
-            onChangeText={email => this.setState({email})}
-            ref={ref => {this._emailInput = ref}}
+            value={this.state.userInput}
+            onChangeText={userInput => this.setState({userInput})}
+            ref={ref => {this._userText = ref}}
             placeholder="User input"
             autoCapitalize="none"
             autoCorrect={false}
-            keyboardType="email-address"
+            keyboardType="user-input"
             returnKeyType="send"
             onSubmitEditing={this._submit}
             blurOnSubmit={true}
@@ -39,8 +39,8 @@ export default class HelpScreen extends Component {
   }
   
   _submit = () => {
-    alert(`User feedback has been saved and sent. ${this.state.email}`);
-    this.state.email = null
+    alert(`User feedback has been saved and sent. ${this.state.userInput}`);
+    this.state.userInput = null
   };
 }
 
