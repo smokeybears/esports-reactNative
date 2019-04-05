@@ -19,13 +19,11 @@ export default class App extends React.Component {
   store = {};
 
   _loadResourcesAsync = () => {
-    console.log("async load")
     const persistedData = {}
     return AsyncStorage.getAllKeys()
     .then((data) => {
       console.log("Persist Keys: ", data)
       const persistData = {...data}
-      console.log("persist Data: ", persistData)
       if (data.session){
         // valid session return {session: key} if valid and {error: ''} if not
         return fetch(`http://localhost:8080/users/${persistData.username}/validSession`)
