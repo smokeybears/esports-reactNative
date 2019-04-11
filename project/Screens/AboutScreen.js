@@ -1,6 +1,7 @@
-import React , { Component }from 'react';
-import { Text } from "react-native";
+import React , { Component  }from 'react';
+import { Text,View,StyleSheet } from "react-native";
 import GestureRecognizer, {swipeDirections} from 'react-native-swipe-gestures';
+import {CardSection } from '../components/common/CardSection';
 
 class ProfileScreen extends Component {
   static navigationOptions = {
@@ -20,7 +21,17 @@ class ProfileScreen extends Component {
           flex: 1,
         }}
         >
-        <Text>Application developed by Jason Yan (Team Leader).</Text>
+
+      <View style={styles.container}>
+        <Text>Application developed by: </Text>
+        <Text>Nathan DaDalto</Text>
+        <Text>Elijah Gilbert</Text>
+        <Text>Peter Cusack</Text>
+        <Text>Sean Billideau</Text>
+        <Text>Blake Hill</Text>
+        <Text>Jason Yan</Text>
+      </View>
+
       </GestureRecognizer>
         );
     }
@@ -28,6 +39,14 @@ class ProfileScreen extends Component {
     onSwipeRight(gestureState) {
         this.props.navigation.navigate('Settings')
       }
+      
 }
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    justifyContent: 'center',
+    alignItems: 'center'
+  },
+});
 
 export default ProfileScreen;

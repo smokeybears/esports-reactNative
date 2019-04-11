@@ -1,35 +1,84 @@
-import React , { Component }from 'react';
-import { Text } from "react-native";
-import GestureRecognizer, {swipeDirections} from 'react-native-swipe-gestures';
 
-class ProfileScreen extends Component {
-  static navigationOptions = {
-    title: 'About',
+import React, { Component } from 'react';
+import { Text, Button, StatusBar, TextInput, KeyboardAvoidingView, View, StyleSheet } from 'react-native';
+import { Constants } from 'expo';
+
+
+export default class HelpScreen extends Component {
+  state = {
+    userInput: '',
   };
-    render(){
-        const config = {
-            velocityThreshold: 0.3,
-            directionalOffsetThreshold: 80
-          };
+  
+  render() {
+    return (
+      <View style={styles.container}>
+        <StatusBar barStyle="light-content" />
+        <View style={styles.header}>
+          <Text style={styles.description}>
+           Submit a bug report/feature request.
+          </Text>
+        </View>
+        <KeyboardAvoidingView behavior="padding" style={styles.form}>
+          <TextInput
+            style={styles.input}
+            value={this.state.userInput}
+            onChangeText={userInput => this.setState({userInput})}
+            ref={ref => {this._userText = ref}}
+            placeholder="User input"
+            autoCapitalize="none"
+            autoCorrect={false}
+            keyboardType="user-input"
+            returnKeyType="send"
+            onSubmitEditing={this._submit}
+            blurOnSubmit={true}
+          />
+          <View>
+            <Button title="Submit" onPress={this._submit} />
+          </View>
+        </KeyboardAvoidingView>
+      </View>
+    );
+  }
+  
+  _submit = () => {
+    alert(`User feedback has been saved and sent. ${this.state.userInput}`);
+    //this.state.userInput = null
 
-        return(
-            <GestureRecognizer
-        onSwipeRight={(state) => this.onSwipeRight(state)}
-        config={config}
-        style={{
-          flex: 1,
-        }}
-        >
-         <Text>Email help@lootbox.com for help with the application.</Text>
-      </GestureRecognizer>
-           
-            
-        );
-    }
-
-    onSwipeRight(gestureState) {
-        this.props.navigation.navigate('Settings')
-      }
 }
 
-export default ProfileScreen;
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+
+    backgroundColor: '#ecf0f1',
+  },
+  header: {
+    paddingTop: 20 + Constants.statusBarHeight,
+    padding: 20,
+    backgroundColor: '#336699',
+  },
+  description: {
+    fontSize: 14,
+    color: 'white',
+  },
+  input: {
+    margin: 20,
+    marginBottom: 0,
+    height: 34,
+    paddingHorizontal: 10,
+    borderRadius: 4,
+    borderColor: '#ccc',
+    borderWidth: 1,
+    fontSize: 16,
+  },
+  legal: {
+    margin: 10,
+    color: '#333',
+    fontSize: 12,
+    textAlign: 'center',
+  },
+  form: {
+    flex: 1,
+    justifyContent: 'space-between',
+  },
+});
