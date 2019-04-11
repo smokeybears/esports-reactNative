@@ -1,29 +1,28 @@
 import React, { Component } from 'react'
-import {Text, View, ScrollView, TouchableOppacity} from 'react-native'
+import {Text, View, ScrollView, TouchableOpacity} from 'react-native'
 import { connect } from 'react-redux'
+import PostPreview from '../../components/postPreview'
 
 const baseURL = 'http://localhost:8080'
 
 class Forum extends Component {
 	constructor(props){
-		console.log(props.navigation)
 		super()
 		this.state = {
 			game: {
 				name: '',
 				id: 0
 			},
+			forumPost: [],
 			title: '',
 			description: '',
 			id: ''
 		}
 		//id: this.
-		// console.log('80 take', this.props.navigation)
 		this.navigation = props.navigation
 	}
 
 	// subscribeToForum(){
-	// 	console.log('ting')
 	// 	return ''
 	// }
 
@@ -31,7 +30,6 @@ class Forum extends Component {
 		return fetch(`${baseURL}/forumsg/${id}`)
 		.then(r => r.json())
 		.then(b => {
-			console.log('return load', b)
 			return this.setState({
 				id: b.forum.id,
 				title: b.forum.title,
@@ -40,6 +38,15 @@ class Forum extends Component {
 		})
 		.catch(err => {
 			throw err
+		})
+	}
+
+	getForumPost = () => {
+		return fetch(`${baseURL}/forums/${this.state.id}/post`)
+		.then(r => r.json())
+		.then(b => {
+			console.log('Post On Forum', b)
+			return this.setState({forumPost: b.post})
 		})
 	}
 
@@ -60,21 +67,40 @@ class Forum extends Component {
 						{this.state.description}
 					</Text>				
 				</View>
-				<View>
-				</View>
+				<TouchableOpacity
+					onPress={() => {
+						return this.navigation.navigate('CreatePost')
+					}}
+					style={styles.newPost}
+				>
+					<Text style={styles.newPostText}> 
+						New Post
+					</Text>
+				</TouchableOpacity>
+				<ScrollView style={styles.feed}>
+					{
+						this.state.forumPost.map(p => {
+							return <PostPreview 
+								author={p.author}
+								title={p.title}
+								body={p.body}
+								forum={p.forum_id}
+							/>
+						})
+					}
+				</ScrollView>
 			</View>
 			)
 	}
-					// <TouchableOppacity
+					// <TouchableOpacity
 					// 	onPress={this.subscribeToForum}
 					// >
 					// 	<Text> submit </Text>
-					// </TouchableOppacity>
+					// </TouchableOpacity>
 			//<postFeed />
 }
 
 const mapStateToProps = (state) => {
-	console.log(state)
 	return {}
 }
 
@@ -83,7 +109,9 @@ export default connect(mapStateToProps)(Forum)
 const styles = {
 	container: {
 		width: '100%',
-		flex: 1
+		flex: 1,
+		justifyContent: 'flex-start',
+		alignItems: 'flex-start'
 	},
 	titleContainer: {
 		flex: 1,
@@ -92,6 +120,17 @@ const styles = {
 		alignItems: 'left',
 		borderBottomColor: 'grey',
 		borderBottomWidth: 2
+	},
+	newPost: {
+		alignSelf: 'flex-end',
+		//justifyContent: 'flex-start',
+		borderBottomWidth: 1,
+		//flex: 1,
+		borderColor: 'grey'
+	},
+	newPostText: {
+		fontWeight: 'bold',
+		fontSize: 15
 	},
 	titleText: {
 		flex: 1,
