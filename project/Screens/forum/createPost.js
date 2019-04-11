@@ -11,22 +11,22 @@ export default class createForum extends Component {
 		super()
 		this.state = {
 			title: '',
-			description: '',
-			games: [],
+			body: '',
+			forum_id: [],
 			game: ''
 		}
 		this.navigation = props.navigation
 	}
 
 	attemptCreate = () => {
-		return fetch(`${baseURL}/forums`, {
+		return fetch(`${baseURL}/posts`, {
 			method: 'POST',
 			headers: {
 				'Content-Type': 'application/json'
 			},
 			body: JSON.stringify({
 				title: this.state.title, 
-				description: this.state.description, 
+				body: this.state.description, 
 				game: this.state.game
 			})
 		})
@@ -36,7 +36,7 @@ export default class createForum extends Component {
 				return this.navigation.navigate("Forum", {
 					forumID: b.forum.id
 				})
-			} else {
+			} else {                                                             
 				return console.log('no Forum Created.. got:', b)
 			}
 

@@ -100,11 +100,15 @@ export const createUser = ({username, email, password, navigation}) => dispatch 
 			'content-type': 'application/json'
 		}
 	})
-	.then(res => {
+	.then(res => res.json())
+	.then(body => {
+		if (body.error) {
+			return null;
+		}
 		navigation.navigate('Settings')
 		return {
 			type: CREATE_USER,
-			...res
+			...body
 		}
 	})
 	.catch(err => {
