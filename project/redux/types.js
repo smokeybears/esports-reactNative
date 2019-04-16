@@ -1,0 +1,19 @@
+export const GET_PERSISTED_DATA = 'GET_PERSISTED_DATA'
+
+export const REQUEST_IN_PROGRESS = 'REQUEST_IN_PROGRESS'
+export const REQUEST_COMPLETE = 'REQUEST_COMPLETE'
+export const REQUEST_ERROR	 = 'REQUEST_ERROR	'
+
+export const LOAD_USER = 'LOAD_USER'
+export const LOAD_SESSION = 'LOAD_SESSION'
+
+export const NAV_TO_STATE = 'NAV_TO_STATE'
+
+export const CREATE_USER = 'CREATE_USER'
+export const LOGOUT = 'LOGOUT'
+
+// Forum
+export const CREATE_FORUM = 'CREATE_FORUM'
+
+//Calendar
+export const UPDATE_MONTH_MATCHES = 'UPDATE_MONTH_MATCHES'
