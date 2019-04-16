@@ -23,6 +23,11 @@ import OverwatchDiscussionScreen from '../Screens/OverwatchDiscussionScreen';
 import CreditCardScreen from '../Screens/CreditCardScreen';
 import WelcomeScreen from '../Screens/WelcomeScreen';
 
+import ForumLanding from '../Screens/forum/landing'
+import CreateForum from '../Screens/forum/createForum'
+import Forum from '../Screens/forum/forumPage'
+
+
 export default createAppContainer(createSwitchNavigator({
   // You could add another route here for authentication.
   // Read more at https://reactnavigation.org/docs/en/auth-flow.html
@@ -33,6 +38,9 @@ export default createAppContainer(createSwitchNavigator({
   // appropriate stack navigator found in MainNavigator
 //  Home:homeScreen,
   Main: MainTabNavigator,
+  ForumLanding: ForumLanding,
+  CreateForum: CreateForum,
+  Forum: Forum,
   Profile: profileScreen,
   SignIn: SignInScreen,
   SignUp: SignUpScreen,
