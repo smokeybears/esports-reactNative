@@ -8,7 +8,14 @@ import Profile from '../Screens/Profile/Profile';
 import SettingsScreen from '../Screens/SettingsScreen';
 import CreateForum from '../Screens/forum/createForum'
 import GameScoreScreen from '../Screens/GameScoreScreen';
-import CalendarScreen from '../Screens/calendar'
+import CalendarScreen from '../Screens/calendar';
+import WelcomeScreen from '../Screens/WelcomeScreen';
+
+
+
+const WelcomeStack = createStackNavigator({
+  Welcome: WelcomeScreen,
+});
 
 const HomeStack = createStackNavigator({
   Home: StreamScreen,
@@ -99,6 +106,7 @@ ProfileStack.navigationOptions = {
 
 
 export default createBottomTabNavigator({
+  WelcomeStack,
   HomeStack,
   CalendarStack,
   ForumsStack,

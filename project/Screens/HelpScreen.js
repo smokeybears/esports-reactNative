@@ -45,7 +45,7 @@ export default class HelpScreen extends Component {
     //this.state.userInput = null
 
 }
-
+}
 const styles = StyleSheet.create({
   container: {
     flex: 1,

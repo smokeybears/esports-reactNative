@@ -21,6 +21,7 @@ import PubgDiscussionScreen from '../Screens/PubgDiscussionScreen';
 import HearthstoneDiscussionScreen from '../Screens/HearthstoneDiscussionScreen';
 import OverwatchDiscussionScreen from '../Screens/OverwatchDiscussionScreen';
 import CreditCardScreen from '../Screens/CreditCardScreen';
+import WelcomeScreen from '../Screens/WelcomeScreen';
 
 export default createAppContainer(createSwitchNavigator({
   // You could add another route here for authentication.
@@ -41,6 +42,7 @@ export default createAppContainer(createSwitchNavigator({
   Help: HelpScreen,
   GameScore: GameScoreScreen,
   CreditCard: CreditCardScreen,
+  Welcome: WelcomeScreen,
 
   Discussion: DiscussionScreen,
   FortniteDiscussion: FortniteDiscussionScreen,
