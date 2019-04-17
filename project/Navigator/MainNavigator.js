@@ -9,18 +9,18 @@ import SettingsScreen from '../Screens/SettingsScreen';
 import CreateForum from '../Screens/forum/createForum'
 import GameScoreScreen from '../Screens/GameScoreScreen';
 
-import CalendarScreen from '../Screens/calendar';
-import WelcomeScreen from '../Screens/WelcomeScreen';
 
+import WelcomeScreen from '../Screens/WelcomeScreen';
+import CalendarScreen from '../Screens/calendar'
+import ForumLanding from '../Screens/forum/landing'
+import Forum from '../Screens/forum/forumPage'
 
 
 const WelcomeStack = createStackNavigator({
   Welcome: WelcomeScreen,
 });
 
-import CalendarScreen from '../Screens/calendar'
-import ForumLanding from '../Screens/forum/landing'
-import Forum from '../Screens/forum/forumPage'
+
 
 
 const HomeStack = createStackNavigator({
