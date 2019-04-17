@@ -9,7 +9,6 @@ import SettingsScreen from '../Screens/SettingsScreen';
 import CreateForum from '../Screens/forum/createForum'
 import GameScoreScreen from '../Screens/GameScoreScreen';
 
-import CalendarScreen from '../Screens/calendar';
 import WelcomeScreen from '../Screens/WelcomeScreen';
 
 
