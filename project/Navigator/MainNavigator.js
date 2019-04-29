@@ -9,17 +9,28 @@ import SettingsScreen from '../Screens/SettingsScreen';
 import CreateForum from '../Screens/forum/createForum'
 import GameScoreScreen from '../Screens/GameScoreScreen';
 
+
 import WelcomeScreen from '../Screens/WelcomeScreen';
 
+
+import WelcomeScreen from '../Screens/WelcomeScreen';
+import CalendarScreen from '../Screens/calendar'
+import ForumLanding from '../Screens/forum/landing'
+import Forum from '../Screens/forum/forumPage'
 
 
 const WelcomeStack = createStackNavigator({
   Welcome: WelcomeScreen,
-});
+}, {
+  headerMode: 'none',
+  navigationOptions: {
+    tabBarVisible: false,
+  },
+  lazy: true,
+}
+);
 
-import CalendarScreen from '../Screens/calendar'
-import ForumLanding from '../Screens/forum/landing'
-import Forum from '../Screens/forum/forumPage'
+
 
 
 const HomeStack = createStackNavigator({
@@ -113,7 +124,7 @@ ProfileStack.navigationOptions = {
 
 export default createBottomTabNavigator({
 
-  WelcomeStack,
+  //WelcomeStack,
 
   ForumsStack,
 
