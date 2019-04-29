@@ -13,6 +13,7 @@ import {
 
 export const requestInProcess = () => { type: REQUEST_IN_PROGRESS }
 export const requestComplete = () => { type: REQUEST_COMPLETE }
+
 export const requestError = (error) => {
 	return {type: REQUEST_ERROR, error}
 }
