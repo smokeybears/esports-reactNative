@@ -55,6 +55,33 @@ class HomeScreen extends React.Component {
         </View>
 
 
+                <TouchableHighlight
+                style={styles.gameView}
+                underlayColor='#f1f1f1'
+                onPress={ this.props.onPressGame }
+              >
+                <View style={styles.gameContainer}>
+                  <View style={styles.boxartView}>
+                    <Image
+                      style={styles.boxartConatianer}
+                      source={require('image!boxart')}
+                      resizeMode="contain" >
+                      <Text numberOfLines={3} style={styles.gameTitle}>{this.props.game.name}</Text>
+                    </Image>
+                    <Animated.Image
+                      style={[styles.gameImg, {opacity: this.state.bounceValue}]}
+                      source={{uri: this.props.game.box.large}}
+                      resizeMode="contain"
+                      onLoad={ this._onImageLoad }
+                    />
+                  </View>
+                </View>
+              </TouchableHighlight>
+            );
+          },
+        });
+
+
       <ScrollView style={{ width: '95%'}}>
       {this.state.streams.streams && this.state.streams.streams.map(stream => (
         <TouchableOpacity style={styles.element} onPress={() => this.props.navigation.navigate('ScreenTwo', {
@@ -64,7 +91,7 @@ class HomeScreen extends React.Component {
             <Text style={{ fontSize: 18, color: 'white'}}>
               /{stream.channel.display_name}
             </Text>
-            <Text style={{fontWeight: 'bold', fontSize: 14, color: 'white'}}>
+            <Text style={{fontWeight: 'bold', fontSize: 14, color: 'white', fontfamily: 'Georgia'}}>
                Game: {stream.game}
             </Text>
             <Text style={{fontWeight: 'bold', fontSize: 14, color: 'white'}}>

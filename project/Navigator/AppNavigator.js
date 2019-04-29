@@ -5,7 +5,7 @@ import SignUpScreen from '../Screens/SignUpScreen';
 import profileScreen from '../Screens/Profile/Profile';
 import MainTabNavigator from './MainNavigator';
 
-import NotificationsScreen from '../Screens/NotificationsScreen';
+//import NotificationsScreen from '../Screens/NotificationsScreen';
 import ScoreScreen from '../Screens/ScoreScreen';
 import AboutScreen from '../Screens/AboutScreen';
 import HelpScreen from '../Screens/HelpScreen';
@@ -36,7 +36,7 @@ export default createAppContainer(createSwitchNavigator({
   Profile: profileScreen,
   SignIn: SignInScreen,
   SignUp: SignUpScreen,
-  Notifications: NotificationsScreen,
+//  Notifications: NotificationsScreen,
   Score: ScoreScreen,
   About: AboutScreen,
   Help: HelpScreen,
