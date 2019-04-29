@@ -8,11 +8,6 @@ import Profile from '../Screens/Profile/Profile';
 import SettingsScreen from '../Screens/SettingsScreen';
 import CreateForum from '../Screens/forum/createForum'
 import GameScoreScreen from '../Screens/GameScoreScreen';
-
-
-import WelcomeScreen from '../Screens/WelcomeScreen';
-
-
 import WelcomeScreen from '../Screens/WelcomeScreen';
 import CalendarScreen from '../Screens/calendar'
 import ForumLanding from '../Screens/forum/landing'
