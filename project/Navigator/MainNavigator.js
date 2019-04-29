@@ -18,7 +18,14 @@ import Forum from '../Screens/forum/forumPage'
 
 const WelcomeStack = createStackNavigator({
   Welcome: WelcomeScreen,
-});
+}, {
+  headerMode: 'none',
+  navigationOptions: {
+    tabBarVisible: false,
+  },
+  lazy: true,
+}
+);
 
 
 
@@ -114,7 +121,7 @@ ProfileStack.navigationOptions = {
 
 export default createBottomTabNavigator({
 
-  WelcomeStack,
+  //WelcomeStack,
 
   ForumsStack,
 

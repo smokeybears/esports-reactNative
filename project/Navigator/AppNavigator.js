@@ -37,6 +37,7 @@ export default createAppContainer(createSwitchNavigator({
   // go back to profile) then don't include the screen here but it in the
   // appropriate stack navigator found in MainNavigator
 //  Home:homeScreen,
+  Welcome: WelcomeScreen,
   Main: MainTabNavigator,
   ForumLanding: ForumLanding,
   CreateForum: CreateForum,
@@ -50,7 +51,7 @@ export default createAppContainer(createSwitchNavigator({
   Help: HelpScreen,
   GameScore: GameScoreScreen,
   CreditCard: CreditCardScreen,
-  Welcome: WelcomeScreen,
+  
 
   Discussion: DiscussionScreen,
   FortniteDiscussion: FortniteDiscussionScreen,
