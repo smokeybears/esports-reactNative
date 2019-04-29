@@ -90,6 +90,14 @@ import { Button } from 'react-native';
    onValueChange(value){
     this.sendNotification.bind(this);
     console.log("hey");
+    NotificationsIOS.localNotification({
+      alertBody: "Local notificiation!",
+      alertTitle: "Local Notification Title",
+      soundName: "chime.aiff",
+        silent: false,
+      category: "SOME_CATEGORY",
+      userInfo: { }
+    });
     this.setState({switchValue: value});
    }
 

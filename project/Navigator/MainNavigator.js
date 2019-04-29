@@ -11,6 +11,9 @@ import GameScoreScreen from '../Screens/GameScoreScreen';
 
 
 import WelcomeScreen from '../Screens/WelcomeScreen';
+
+
+import WelcomeScreen from '../Screens/WelcomeScreen';
 import CalendarScreen from '../Screens/calendar'
 import ForumLanding from '../Screens/forum/landing'
 import Forum from '../Screens/forum/forumPage'
