@@ -9,8 +9,11 @@ import {
   } from 'react-native';
 import Icon from 'react-native-vector-icons/FontAwesome';
 import { Button } from 'react-native-elements';
+const NAME = 'Profile'
 
 export default class Profile extends Component {
+
+
 
   static navigationOptions = ({navigation}) => {
     const {params = {}} = navigation.state;
@@ -59,33 +62,11 @@ export default class Profile extends Component {
     return (
       <View style={styles.container}>
           <Image style={styles.header} source={{uri: 'https://assets.bwbx.io/images/users/iqjWHBFdfxIU/isBqQ09k04Mc/v1/1000x-1.jpg'}}/>
-          <Image style={styles.avatar} source={{uri: 'https://www.apu.edu/faculty/photos/dgrissom.jpg?mdate=1546974979'}}/>
+          <Image style={styles.avatar} source={{uri: 'https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973461_960_720.png'}}/>
           <View style={styles.body}>
             <View style={styles.bodyContent}>
-              <Text style={styles.name}>Dan Grissom</Text>
+              <Text style={styles.name}>NAME</Text>
 
-
-              <Text style={styles.info}>Favorite games:</Text>
-              <Button  title = "DOTA 2"  style= {styles.buttonContainer}
-                icon={ 
-                    <Image source = {require('../../assets/images/GamesIcon/DOTA2.png')}
-                    style = {styles.IconStyle} />}
-                    onPress={() => this.props.navigation.navigate('GameScore',
-                    {prevScreenTitle: 'DOTA 2'})}
-                    />
-                <Button large title = "Fortnite         " style= {styles.buttonContainer}
-               icon={
-                  <Image source = {require('../../assets/images/GamesIcon/fortnite.jpg')}
-                  onPress={() => this.props.navigation.navigate('GameScore',
-                    {prevScreenTitle: 'Fortnite'})}
-                  style = {styles.IconStyle} />}/>
-                   
-              <Button large title = "League of Legends" style= {styles.buttonContainer}
-               icon={
-                  <Image source = {require('../../assets/images/GamesIcon/LOL.png')}
-                  onPress={() => this.props.navigation.navigate('GameScore',
-                    {prevScreenTitle: 'League of Legends'})}
-                    style = {styles.IconStyle} />}/>
             </View>
         </View>
       </View>
