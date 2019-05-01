@@ -5,9 +5,9 @@ import { AppLoading } from 'expo';
 import Slides from '../components/Slides';
 
 const SLIDE_DATA = [
-  { text: 'Welcome to LootBox', color: '#3F53B1' },
-  { text: 'Use this to make life easier', color: '#3F53B1' },
-  { text: 'Watch stream, Live score, discussion...', color: '#3F53B1' }
+  { text: '  Welcome to LootBox \n \n Swipe to learn more! ->', color: '#483d8b'  },
+  { text: 'Everything you need to stay      updated on esports \n \nAll in one app', color: '#000080' },
+  { text: 'Watch streams, Get live scores,  and discuss with others about       your favorite games', color: '#4169e1' }
 ];
 
 class WelcomeScreen extends Component {

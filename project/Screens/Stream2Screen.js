@@ -50,6 +50,7 @@ class HomeScreen extends React.Component {
           </View>
           <View style={{flex:1.2, backgroundColor: '#3F53B1', borderBottomRightRadius: '6px', borderTopRightRadius: '6px'}}>
             <Button color='white' title= 'Search' onPress={this.Search}>
+            raised
             </Button>
           </View>
         </View>

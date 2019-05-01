@@ -158,7 +158,7 @@ const SearchSubjects = (props) => {
 							style={{
 								...styles.subjectOption, 
 								...{
-									backgroundColor: s == curSub ? "rgba(100, 100, 100, 0.2)" : 'white'
+									backgroundColor: s == curSub ? "rgba(68, 108, 179, 1)" : 'white'
 									}
 								}}
 								>

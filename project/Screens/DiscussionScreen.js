@@ -9,7 +9,7 @@ class DiscussionScreen extends Component {
       backgroundColor: '#3F53B1',
         },
     headerTitleStyle: {
-      color: 'white',
+      color: 'blue',
         },
     title: 'Discussion',
   };

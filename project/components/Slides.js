@@ -60,7 +60,7 @@ const styles = {
     },
 
     buttonStyle: {
-        backgroundColor: '#0288D1',
+        backgroundColor: '#1e90ff',
         //marginTop: 15
     }
 };
